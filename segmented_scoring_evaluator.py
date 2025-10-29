@@ -17,37 +17,39 @@ import requests
 import re
 
 
-class OpenRouterClient:
+class APIClient:
     """
-    OpenRouter API客户端
+    多API客户端，支持OpenRouter、Ollama等服务
     """
-    def __init__(self, api_key: str, base_url: str = "https://openrouter.ai/api/v1"):
-        self.api_key = api_key
-        self.base_url = base_url
+    def __init__(self):
+        # 从环境变量获取API密钥
+        self.openrouter_api_key = os.getenv('OPENROUTER_API_KEY')
+        self.openrouter_base_url = "https://openrouter.ai/api/v1"
+        
+        # Ollama配置
+        self.ollama_base_url = os.getenv('OLLAMA_BASE_URL', 'http://localhost:11434')
 
-    def evaluate(self, model: str, prompt: str, system_prompt: str = None, max_tokens: int = 2000) -> Dict[str, Any]:
-        """
-        使用指定模型评估
-        """
+    def _call_openrouter_api(self, model: str, prompt: str, system_prompt: str = None, max_tokens: int = 2000) -> Dict[str, Any]:
+        """调用OpenRouter API"""
         try:
             headers = {
-                "Authorization": f"Bearer {self.api_key}",
+                "Authorization": f"Bearer {self.openrouter_api_key}",
                 "Content-Type": "application/json"
             }
 
+            messages = [{"role": "user", "content": prompt}]
+            if system_prompt:
+                messages.insert(0, {"role": "system", "content": system_prompt})
+
             payload = {
                 "model": model,
-                "messages": [
-                    {"role": "user", "content": prompt}
-                ],
+                "messages": messages,
                 "max_tokens": max_tokens,
                 "temperature": 0.1
             }
 
-            if system_prompt:
-                payload["messages"].insert(0, {"role": "system", "content": system_prompt})
-
-            response = requests.post(f"{self.base_url}/chat/completions", json=payload, headers=headers, timeout=120)
+            response = requests.post(f"{self.openrouter_base_url}/chat/completions", 
+                                   json=payload, headers=headers, timeout=120)
             response.raise_for_status()
 
             result = response.json()
@@ -55,21 +57,136 @@ class OpenRouterClient:
                 "success": True,
                 "response": result["choices"][0]["message"]["content"],
                 "model": model,
-                "raw_response": result
+                "raw_response": result,
+                "api_type": "openrouter"
             }
 
         except requests.exceptions.RequestException as e:
             return {
                 "success": False,
-                "error": f"API request failed: {str(e)}",
-                "model": model
+                "error": f"OpenRouter API request failed: {str(e)}",
+                "model": model,
+                "api_type": "openrouter"
             }
         except Exception as e:
             return {
                 "success": False,
-                "error": f"Evaluation failed: {str(e)}",
-                "model": model
+                "error": f"OpenRouter evaluation failed: {str(e)}",
+                "model": model,
+                "api_type": "openrouter"
             }
+
+    def _call_ollama_api(self, model: str, prompt: str, system_prompt: str = None, max_tokens: int = 2000) -> Dict[str, Any]:
+        """调用Ollama API"""
+        try:
+            # 构建消息列表
+            messages = [{"role": "user", "content": prompt}]
+            if system_prompt:
+                messages.insert(0, {"role": "system", "content": system_prompt})
+
+            # 准备请求负载
+            payload = {
+                "model": model,
+                "messages": messages,
+                "stream": False,
+                "options": {
+                    "temperature": 0.1,
+                    "num_predict": max_tokens
+                }
+            }
+
+            # 发送请求到Ollama服务
+            response = requests.post(f"{self.ollama_base_url}/api/chat", 
+                                   json=payload, timeout=120)
+            response.raise_for_status()
+
+            result = response.json()
+            return {
+                "success": True,
+                "response": result.get("message", {}).get("content", ""),
+                "model": model,
+                "raw_response": result,
+                "api_type": "ollama"
+            }
+
+        except requests.exceptions.RequestException as e:
+            return {
+                "success": False,
+                "error": f"Ollama API request failed: {str(e)}",
+                "model": model,
+                "api_type": "ollama"
+            }
+        except Exception as e:
+            return {
+                "success": False,
+                "error": f"Ollama evaluation failed: {str(e)}",
+                "model": model,
+                "api_type": "ollama"
+            }
+
+    def evaluate(self, model: str, prompt: str, system_prompt: str = None, max_tokens: int = 2000, 
+                 service_preference: str = "auto") -> Dict[str, Any]:
+        """
+        使用指定模型评估，支持多级重试
+        service_preference: "auto", "openrouter", "ollama"
+        """
+        # 定义服务尝试顺序
+        if service_preference == "openrouter":
+            services_to_try = ["openrouter"]
+        elif service_preference == "ollama":
+            services_to_try = ["ollama"]
+        else:  # auto (默认)
+            services_to_try = ["openrouter", "ollama"]
+        
+        # 尝试每个服务
+        for service in services_to_try:
+            if service == "openrouter":
+                result = self._call_openrouter_api(model, prompt, system_prompt, max_tokens)
+            elif service == "ollama":
+                result = self._call_ollama_api(model, prompt, system_prompt, max_tokens)
+            else:
+                continue  # 未知服务类型，跳过
+
+            # 如果成功，返回结果
+            if result["success"]:
+                return result
+            
+            print(f"  ⚠️ {service} API 调用失败: {result.get('error', 'Unknown error')}")
+            print(f"  🔄 尝试下一个服务...")
+        
+        # 所有服务都失败了
+        return {
+            "success": False,
+            "error": f"所有API服务调用都失败了 - 尝试了: {services_to_try}",
+            "model": model
+        }
+
+
+class SegmentedScoringEvaluator:
+    """
+    分段评分评估器
+    """
+    def __init__(self, api_key: str = None):
+        self.api_key = api_key or os.getenv('OPENROUTER_API_KEY')
+        self.client = APIClient()  # 使用新的多API客户端
+        
+        # 主评估器列表，按优先级排序，优先选择大上下文模型
+        self.models = [
+            {"name": "google/gemini-2.0-flash-exp:free", "description": "Google Gemini 2.0 Flash (1M上下文)"},
+            {"name": "deepseek/deepseek-r1:free", "description": "DeepSeek R1 (163K上下文)"},
+            {"name": "qwen/qwen3-235b-a22b:free", "description": "Qwen3 235B (131K上下文)"},
+            {"name": "mistralai/mistral-small-3.2-24b-instruct:free", "description": "Mistral Small (131K上下文)"},
+            {"name": "meta-llama/llama-3.3-70b-instruct:free", "description": "Llama 3.3 70B (65K上下文)"},
+            {"name": "moonshotai/kimi-k2:free", "description": "Moonshot Kimi K2 (32K上下文)"}
+        ]
+        
+        # Ollama模型列表（备用）
+        self.ollama_models = [
+            {"name": "qwen3:4b", "description": "Qwen3 4B (本地模型)"},
+            {"name": "gemma2:2b", "description": "Gemma2 2B (本地模型)"},
+            {"name": "llama3.2:3b", "description": "Llama3.2 3B (本地模型)"},
+            {"name": "mistral:7b", "description": "Mistral 7B (本地模型)"}
+        ]
 
 
 class SegmentedScoringEvaluator:
@@ -78,7 +195,7 @@ class SegmentedScoringEvaluator:
     """
     def __init__(self, api_key: str = None):
         self.api_key = api_key or os.getenv('OPENROUTER_API_KEY', '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')
-        self.client = OpenRouterClient(self.api_key)
+        self.client = APIClient()
         
         # 主评估器列表，按优先级排序，优先选择大上下文模型
         self.models = [
@@ -196,41 +313,60 @@ class SegmentedScoringEvaluator:
                     valid_scores[trait] = 3  # 2和4修正为3
         return valid_scores
 
-    def _analyze_segment_with_model(self, model_config: Dict, segment: List[Dict], segment_number: int, total_segments: int) -> Dict:
+    def _analyze_segment_with_model(self, model_config: Dict, segment: List[Dict], segment_number: int, total_segments: int, max_retries: int = 3) -> Dict:
         """
-        使用指定模型分析单个分段
+        使用指定模型分析单个分段，支持多级重试
         """
-        try:
-            prompt = self._create_segment_prompt(segment, segment_number, total_segments)
+        prompt = self._create_segment_prompt(segment, segment_number, total_segments)
 
-            print(f"    📡 调用 {model_config['name']} 分析段{segment_number}...")
+        print(f"    📡 调用 {model_config['name']} 分析段{segment_number}...")
+
+        # 尝试多次调用
+        for attempt in range(max_retries):
+            if attempt > 0:
+                print(f"      🔄 第 {attempt + 1} 次重试...")
+            
             eval_result = self.client.evaluate(
                 model=model_config['name'],
                 prompt=prompt,
-                system_prompt="你是专业的心理评估分析师。必须严格使用1-3-5评分标准。"
+                system_prompt="你是专业的心理评估分析师。必须严格使用1-3-5评分标准。",
+                service_preference="auto"  # 自动尝试不同服务
             )
 
             if not eval_result['success']:
-                print(f"      ❌ {model_config['name']} 调用失败: {eval_result.get('error', 'Unknown error')}")
-                return {
-                    'success': False,
-                    'segment_number': segment_number,
-                    'model': model_config['name'],
-                    'error': eval_result.get('error', 'API call failed'),
-                    'raw_response': 'API call failed'
-                }
+                error_msg = eval_result.get('error', 'Unknown error')
+                print(f"      ❌ {model_config['name']} 调用失败 (尝试 {attempt + 1}/{max_retries}): {error_msg}")
+                
+                if attempt == max_retries - 1:  # 最后一次尝试也失败
+                    return {
+                        'success': False,
+                        'segment_number': segment_number,
+                        'model': model_config['name'],
+                        'error': error_msg,
+                        'raw_response': 'API call failed after retries'
+                    }
+                else:
+                    time.sleep(2 ** attempt)  # 指数退避
+                    continue
 
             content = eval_result['response']
 
             # 检查响应是否为空
             if not content or content.strip() == "":
-                return {
-                    'success': False,
-                    'segment_number': segment_number,
-                    'model': model_config['name'],
-                    'error': 'API响应为空',
-                    'raw_response': 'No content'
-                }
+                error_msg = 'API响应为空'
+                print(f"      ❌ {model_config['name']}: {error_msg} (尝试 {attempt + 1}/{max_retries})")
+                
+                if attempt == max_retries - 1:  # 最后一次尝试也失败
+                    return {
+                        'success': False,
+                        'segment_number': segment_number,
+                        'model': model_config['name'],
+                        'error': error_msg,
+                        'raw_response': 'No content after retries'
+                    }
+                else:
+                    time.sleep(2 ** attempt)  # 指数退避
+                    continue
 
             # 解析JSON - 提取```json```包裹的内容
             try:
@@ -257,23 +393,35 @@ class SegmentedScoringEvaluator:
                 print(f"      ✅ {model_config['name']} JSON解析成功")
 
             except json.JSONDecodeError as e:
-                print(f"      ❌ {model_config['name']} JSON解析失败: {str(e)[:100]}")
-                return {
-                    'success': False,
-                    'segment_number': segment_number,
-                    'model': model_config['name'],
-                    'error': f'JSON解析失败: {str(e)[:100]}',
-                    'raw_response': content[:500] if content else 'No content'
-                }
+                error_msg = f'JSON解析失败: {str(e)[:100]}'
+                print(f"      ❌ {model_config['name']} {error_msg} (尝试 {attempt + 1}/{max_retries})")
+                
+                if attempt == max_retries - 1:  # 最后一次尝试也失败
+                    return {
+                        'success': False,
+                        'segment_number': segment_number,
+                        'model': model_config['name'],
+                        'error': error_msg,
+                        'raw_response': content[:500] if content else 'No content'
+                    }
+                else:
+                    time.sleep(2 ** attempt)  # 指数退避
+                    continue
             except Exception as e:
-                print(f"      ❌ {model_config['name']} 响应处理失败: {str(e)}")
-                return {
-                    'success': False,
-                    'segment_number': segment_number,
-                    'model': model_config['name'],
-                    'error': f'响应处理失败: {str(e)}',
-                    'raw_response': content[:500] if content else 'No content'
-                }
+                error_msg = f'响应处理失败: {str(e)}'
+                print(f"      ❌ {model_config['name']} {error_msg} (尝试 {attempt + 1}/{max_retries})")
+                
+                if attempt == max_retries - 1:  # 最后一次尝试也失败
+                    return {
+                        'success': False,
+                        'segment_number': segment_number,
+                        'model': model_config['name'],
+                        'error': error_msg,
+                        'raw_response': content[:500] if content else 'No content'
+                    }
+                else:
+                    time.sleep(2 ** attempt)  # 指数退避
+                    continue
 
             # 验证并修正评分标准
             if 'scores' in result:
@@ -294,15 +442,14 @@ class SegmentedScoringEvaluator:
 
             return result
 
-        except Exception as e:
-            print(f"      ❌ {model_config['name']} 分析失败: {str(e)}")
-            return {
-                'success': False,
-                'segment_number': segment_number,
-                'model': model_config['name'],
-                'error': f'分析失败: {str(e)}',
-                'raw_response': str(e)
-            }
+        # 如果所有重试都失败，返回错误
+        return {
+            'success': False,
+            'segment_number': segment_number,
+            'model': model_config['name'],
+            'error': f'分析失败: 经过 {max_retries} 次尝试仍然失败',
+            'raw_response': 'Analysis failed after retries'
+        }
 
     def _calculate_model_consistency(self, model_results: List[Dict]) -> Dict:
         """
@@ -311,7 +458,19 @@ class SegmentedScoringEvaluator:
         if len(model_results) < 2:
             return {"error": "需要至少2个模型的结果"}
 
-        successful_models = [r for r in model_results if r.get('success', False)]
+        # 修正：根据传入的参数类型进行处理，传入的是包含模型名称和评分的字典列表
+        successful_models = []
+        for result in model_results:
+            if isinstance(result, dict) and 'model' in result and 'scores' in result:
+                successful_models.append(result)
+            elif isinstance(result, dict) and 'model' in result:
+                # 如果传入的是模型名称和完整结果的字典，例如在evaluate_file_with_multiple_models调用时
+                if 'final_scores' in result:
+                    successful_models.append({
+                        'model': result['model'],
+                        'scores': result['final_scores']
+                    })
+
         if len(successful_models) < 2:
             return {"error": f"成功模型数量不足: {len(successful_models)}/{len(model_results)}"}
 
@@ -364,7 +523,7 @@ class SegmentedScoringEvaluator:
             "overall_consistency": overall_consistency,
             "successful_models": len(successful_models),
             "total_models": len(model_results),
-            "discrepancies": [trait for trait, analysis in consistency_analysis.items() if analysis["range"] > 1]
+            "discrepancies": [trait for trait, analysis in consistency_analysis.items() if analysis.get("range", 0) > 1]
         }
 
     def analyze_file_with_three_models(self, file_path: str, output_dir: str) -> Dict:
@@ -398,6 +557,7 @@ class SegmentedScoringEvaluator:
                             
                             if question_text and answer_text:
                                 questions.append({
+                                    'question_id': item.get('question_id'),
                                     'question_data': question_data,
                                     'extracted_response': answer_text
                                 })
@@ -466,6 +626,40 @@ class SegmentedScoringEvaluator:
             
             consistency_analysis = self._calculate_model_consistency(final_scores_list)
 
+            # 创建信度验证器并计算信度
+            print(f"  📊 计算信度指标...")
+            reliability_validator = ReliabilityValidator(threshold=0.8)
+            reliability_metrics = reliability_validator.calculate_overall_reliability(model_analysis_results)
+            reliability_report = reliability_validator.generate_reliability_report(model_analysis_results, reliability_metrics)
+            
+            # 检查是否存在争议
+            print(f"  🔍 检查评估争议...")
+            all_scores = []
+            for model_name, results in model_analysis_results.items():
+                for segment_result in results['segment_results']:
+                    if segment_result.get('success') and 'scores' in segment_result:
+                        # 将段结果转换为问题级别结果（简化处理）
+                        for trait, score in segment_result['scores'].items():
+                            all_scores.append({
+                                'question_id': f"segment_{segment_result['segment_number']}_{trait}",
+                                'trait': trait,
+                                'score': score,
+                                'model': model_name
+                            })
+            
+            dispute_manager = DisputeResolutionManager()
+            disputes = dispute_manager.identify_disputes(all_scores, threshold=1)
+            
+            if disputes:
+                print(f"  ⚠️  发现 {len(disputes)} 个争议")
+                # 如果存在争议，尝试使用额外评估器解决
+                resolved_disputes = dispute_manager.resolve_disputes_with_additional_evaluators(
+                    self, disputes, all_scores, questions, segment_size
+                )
+            else:
+                print(f"  ✅ 未发现显著争议")
+                resolved_disputes = None
+
             # 保存结果
             output_filename = f"{Path(file_path).stem}_segmented_scoring_evaluation.json"
             output_path = os.path.join(output_dir, output_filename)
@@ -481,10 +675,21 @@ class SegmentedScoringEvaluator:
                 "models_used": selected_models,
                 "model_results": model_analysis_results,
                 "consistency_analysis": consistency_analysis,
+                "reliability_analysis": {
+                    "metrics": reliability_metrics,
+                    "report": reliability_report
+                },
+                "dispute_analysis": {
+                    "disputes_identified": len(disputes),
+                    "resolved_disputes": resolved_disputes,
+                    "dispute_resolution_needed": len(disputes) > 0
+                },
                 "summary": {
                     "overall_consistency": consistency_analysis.get('overall_consistency', 0),
+                    "overall_reliability": reliability_metrics.get('overall_reliability', 0),
                     "model_count": len(selected_models),
-                    "successful_models": consistency_analysis.get('successful_models', 0)
+                    "successful_models": consistency_analysis.get('successful_models', 0),
+                    "reliability_passed": reliability_report.get('validation_passed', False)
                 }
             }
 
@@ -500,6 +705,8 @@ class SegmentedScoringEvaluator:
                 print(f"    {model}: {results['final_scores']} ({results['successful_segments']}/{results['total_segments']}段成功)")
 
             print(f"  🎯 模型一致性: {consistency_analysis.get('overall_consistency', 0):.1f}%")
+            print(f"  🎯 整体信度: {reliability_metrics.get('overall_reliability', 0):.1f}%")
+            print(f"  🎯 信度验证: {'✅ 通过' if reliability_report.get('validation_passed', False) else '❌ 未通过'}")
 
             return {
                 'success': True,
@@ -507,11 +714,19 @@ class SegmentedScoringEvaluator:
                 'output_path': output_path,
                 'model_results': model_analysis_results,
                 'consistency_analysis': consistency_analysis,
-                'consistency_score': consistency_analysis.get('overall_consistency', 0)
+                'reliability_analysis': {
+                    'metrics': reliability_metrics,
+                    'report': reliability_report
+                },
+                'consistency_score': consistency_analysis.get('overall_consistency', 0),
+                'reliability_score': reliability_metrics.get('overall_reliability', 0),
+                'reliability_passed': reliability_report.get('validation_passed', False)
             }
 
         except Exception as e:
             print(f"  ❌ 文件评估失败: {e}")
+            import traceback
+            traceback.print_exc()
             return {
                 'success': False,
                 'file_path': file_path,
@@ -677,7 +892,19 @@ class DisputeResolutionManager:
     分歧处理管理器
     """
     def __init__(self):
-        pass
+        # 定义额外的评估器列表，用于分歧处理
+        self.dispute_models = [
+            {"name": "google/gemini-2.0-flash-exp:free", "description": "Google Gemini 2.0 Flash (1M上下文)"},
+            {"name": "moonshotai/kimi-k2:free", "description": "Moonshot Kimi K2 (32K上下文)"},
+            {"name": "anthropic/claude-3-haiku", "description": "Claude 3 Haiku (200K上下文)"}
+        ]
+        
+        # Ollama模型列表（备用）用于分歧解决
+        self.ollama_dispute_models = [
+            {"name": "qwen3:4b", "description": "Qwen3 4B (本地模型)"},
+            {"name": "gemma2:2b", "description": "Gemma2 2B (本地模型)"},
+            {"name": "llama3.2:3b", "description": "Llama3.2 3B (本地模型)"}
+        ]
 
     def identify_disputes(self, all_scores: List[Dict], threshold: int = 1) -> List[Dict]:
         """
@@ -747,6 +974,349 @@ class DisputeResolutionManager:
         else:
             # 如果修剪后没有评分，返回原评分的平均值
             return round(statistics.mean(scores)) if scores else 0
+    
+    def get_additional_evaluators(self, round_number: int) -> List[Dict]:
+        """
+        根据轮次获取额外的评估器，优先使用云模型，后使用Ollama模型
+        """
+        if round_number == 1:
+            # 第一轮争议时，添加2个额外评估器（优先云模型）
+            available_models = self.dispute_models
+            return available_models[:2] if len(available_models) >= 2 else available_models
+        elif round_number == 2:
+            # 第二轮争议时，添加Ollama模型作为回退
+            available_models = self.ollama_dispute_models
+            return available_models[:2] if len(available_models) >= 2 else available_models
+        else:
+            # 后续轮次，在所有可用模型中循环使用
+            all_models = self.dispute_models + self.ollama_dispute_models
+            start_idx = (round_number - 1) * 2  # 从相应的模型开始
+            selected_models = []
+            for i in range(2):  # 选择2个模型
+                model_idx = (start_idx + i) % len(all_models)
+                selected_models.append(all_models[model_idx])
+            return selected_models
+    
+    def resolve_disputes_with_additional_evaluators(self, evaluator, disputes: List[Dict], 
+                                                   original_results: List[Dict], 
+                                                   questions: List[Dict], 
+                                                   segment_size: int = 5) -> Dict:
+        """
+        使用额外评估器解决分歧
+        """
+        print(f"🔍 识别到 {len(disputes)} 个分歧，开始解决...")
+        
+        # 按问题组织原始结果
+        question_results = {}
+        for result in original_results:
+            qid = result.get('question_id')
+            if qid not in question_results:
+                question_results[qid] = []
+            question_results[qid].append(result)
+        
+        resolved_results = []
+        unresolved_disputes = []
+        
+        round_number = 1
+        max_rounds = 3  # 最多进行3轮争议解决
+        
+        current_disputes = disputes.copy()
+        
+        while current_disputes and round_number <= max_rounds:
+            print(f"🔄 第 {round_number} 轮争议解决，当前有 {len(current_disputes)} 个未解决问题")
+            
+            # 获取当前轮次的额外评估器
+            additional_evaluators = self.get_additional_evaluators(round_number - 1)
+            if not additional_evaluators:
+                print(f"⚠️  没有更多评估器可以使用，停止争议解决")
+                break
+            
+            print(f"🤖 使用额外评估器: {[m['name'] for m in additional_evaluators]}")
+            
+            new_scores = []
+            
+            # 对每个争议问题进行额外评估
+            for dispute in current_disputes:
+                question_id = dispute['question_id']
+                
+                # 找到对应的问题
+                question = None
+                for q in questions:
+                    if q.get('question_id') == question_id:
+                        question = q
+                        break
+                
+                if not question:
+                    continue
+                
+                # 创建针对该问题的分段（包含争议特质）
+                question_segment = [question]
+                
+                # 使用额外评估器对争议问题进行评估
+                for model_config in additional_evaluators:
+                    result = evaluator._analyze_segment_with_model(
+                        model_config, 
+                        question_segment, 
+                        1,  # 分段编号，这里只处理单个问题
+                        1,  # 总分段数
+                        max_retries=2  # 争议解决时减少重试次数以提高效率
+                    )
+                    
+                    if result['success']:
+                        # 提取争议特质的评分
+                        trait = dispute['trait']
+                        if 'scores' in result and trait in result['scores']:
+                            new_scores.append({
+                                'question_id': question_id,
+                                'trait': trait,
+                                'score': result['scores'][trait],
+                                'model': model_config['name'],
+                                'round': round_number
+                            })
+            
+            # 重新评估争议
+            all_current_scores = []
+            # 添加原始评分
+            for result in original_results:
+                for trait in ['openness_to_experience', 'conscientiousness', 'extraversion', 'agreeableness', 'neuroticism']:
+                    if trait in result:
+                        all_current_scores.append({
+                            'question_id': result.get('question_id'),
+                            'trait': trait,
+                            'score': result[trait],
+                            'model': result.get('model', 'unknown')
+                        })
+            
+            # 添加新评分
+            for score in new_scores:
+                all_current_scores.append(score)
+            
+            # 重新识别分歧
+            updated_disputes = self.identify_disputes(
+                all_current_scores, 
+                threshold=1
+            )
+            
+            print(f"📊 第 {round_number} 轮后，仍有 {len(updated_disputes)} 个争议")
+            
+            # 如果没有争议了，跳出循环
+            if not updated_disputes:
+                print(f"✅ 所有争议在第 {round_number} 轮后得到解决")
+                break
+            
+            # 检查是否达到最大轮次
+            if round_number >= max_rounds:
+                print(f"⚠️  已达到最大争议解决轮次({max_rounds})，仍有 {len(updated_disputes)} 个争议未解决")
+                unresolved_disputes = updated_disputes
+                break
+                
+            # 更新争议列表
+            current_disputes = updated_disputes
+            round_number += 1
+        
+        return {
+            'resolved_results': resolved_results,
+            'unresolved_disputes': unresolved_disputes,
+            'new_scores': new_scores,
+            'rounds_used': round_number
+        }
+
+
+class ReliabilityValidator:
+    """
+    信度验证器
+    """
+    def __init__(self, threshold=0.8):
+        """
+        初始化信度验证器
+        :param threshold: 信度阈值，默认0.8
+        """
+        self.threshold = threshold
+
+    def calculate_cronbach_alpha(self, scores_matrix: List[List[float]]) -> float:
+        """
+        计算Cronbach's Alpha系数
+        :param scores_matrix: 评分矩阵，每一行代表一个评估器对所有问题的评分，每一列代表一个问题的所有评估器评分
+        :return: Cronbach's Alpha系数
+        """
+        import numpy as np
+        
+        scores = np.array(scores_matrix)
+        
+        if scores.size == 0:
+            return 0.0
+            
+        # 检查矩阵维度
+        if len(scores.shape) < 2 or scores.shape[0] < 2 or scores.shape[1] < 2:
+            return 0.0  # 需要至少2个评估器和2个问题
+        
+        # 计算每道题（每列）的方差（项目间方差）
+        item_variances = np.var(scores, axis=0, ddof=1)  # 每列(题目)的方差，使用样本方差
+        sum_of_item_variances = np.sum(item_variances)
+        
+        # 计算每个评估器（每行）的总分
+        rater_totals = np.sum(scores, axis=1)  # 每行(评估器)的总和
+        
+        # 计算总分方差（评估者间方差）
+        total_scores_variance = np.var(rater_totals, ddof=1)  # 使用样本方差
+        
+        if total_scores_variance == 0:
+            # 如果所有评估器的总分相同，说明完全一致
+            if sum_of_item_variances == 0:
+                # 所有值都相同
+                return 1.0
+            else:
+                # 每列内部不同，但每行总分相同
+                return 0.0 if sum_of_item_variances > 0 else 1.0
+        
+        n_items = scores.shape[1]  # 问题数量
+        
+        # Cronbach's Alpha公式
+        # α = (k / (k-1)) * (1 - Σsi² / sT²)
+        # 其中 k 是题目数，si² 是每个题目的方差，sT² 是总分方差
+        if sum_of_item_variances == 0:
+            return 1.0  # 每个列内部完全一致，但行间可能不同
+        
+        alpha = (n_items / (n_items - 1)) * (1 - sum_of_item_variances / total_scores_variance)
+        
+        return max(0.0, min(1.0, alpha))  # 确保Alpha在0-1之间
+
+    def calculate_inter_rater_reliability(self, scores_by_trait: Dict[str, List[float]]) -> Dict[str, float]:
+        """
+        计算评估者间信度
+        :param scores_by_trait: 按特质分组的评分
+        :return: 每个特质的信度系数
+        """
+        from scipy.stats import pearsonr
+        
+        reliability_scores = {}
+        
+        for trait, scores_list in scores_by_trait.items():
+            if len(scores_list) < 2:
+                reliability_scores[trait] = 0.0
+                continue
+            
+            # 如果每个特质有多个评估器的评分，计算相关性
+            # 这里我们假设scores_list包含所有评估器对某一特质的所有评分
+            # 根据实施计划，我们需要根据具体情况进行计算
+            
+            # 使用评分差异的倒数作为一致性指标
+            if len(set(scores_list)) == 1:  # 所有评分相同
+                reliability_scores[trait] = 1.0
+            elif len(scores_list) >= 2:
+                # 计算标准差，标准差越小一致性越高
+                std_dev = statistics.stdev(scores_list) if len(scores_list) > 1 else 0
+                max_score_range = max(scores_list) - min(scores_list)
+                
+                # 如果标准差为0，说明完全一致
+                if std_dev == 0:
+                    reliability_scores[trait] = 1.0
+                else:
+                    # 归一化到0-1范围，一致性越高分数越高
+                    # 通过评分范围和标准差来估计一致性
+                    if max_score_range > 0:
+                        # 一致性 = 1 - (标准差/评分范围)
+                        consistency = max(0, 1 - (std_dev / max_score_range))
+                        reliability_scores[trait] = consistency
+                    else:
+                        reliability_scores[trait] = 0.0
+            else:
+                reliability_scores[trait] = 0.0
+        
+        return reliability_scores
+
+    def calculate_overall_reliability(self, model_results: Dict) -> Dict[str, float]:
+        """
+        计算整体信度
+        :param model_results: 模型结果字典
+        :return: 包含各项信度指标的字典
+        """
+        if not model_results:
+            return {"overall_reliability": 0.0, "reliability_by_trait": {}}
+        
+        # 收集所有模型的最终评分
+        all_final_scores = []
+        scores_by_trait = {
+            "openness_to_experience": [],
+            "conscientiousness": [],
+            "extraversion": [],
+            "agreeableness": [],
+            "neuroticism": []
+        }
+        
+        for model_name, results in model_results.items():
+            if 'final_scores' in results:
+                final_scores = results['final_scores']
+                model_scores = []
+                
+                for trait in scores_by_trait.keys():
+                    if trait in final_scores:
+                        score = final_scores[trait]
+                        scores_by_trait[trait].append(score)
+                        model_scores.append(score)
+                
+                if model_scores:
+                    all_final_scores.append(model_scores)
+        
+        # 计算各项信度指标
+        trait_reliability = self.calculate_inter_rater_reliability(scores_by_trait)
+        
+        # 计算Cronbach's Alpha
+        if len(all_final_scores) >= 2:
+            cronbach_alpha = self.calculate_cronbach_alpha(all_final_scores)
+        else:
+            cronbach_alpha = 0.0
+        
+        # 计算平均信度
+        avg_reliability = statistics.mean(trait_reliability.values()) if trait_reliability.values() else 0.0
+        
+        return {
+            "overall_reliability": avg_reliability,
+            "reliability_by_trait": trait_reliability,
+            "cronbach_alpha": cronbach_alpha,
+            "avg_reliability": avg_reliability
+        }
+
+    def validate_reliability(self, reliability_metrics: Dict) -> bool:
+        """
+        验证信度是否满足要求
+        :param reliability_metrics: 信度指标字典
+        :return: 是否通过验证
+        """
+        overall_reliability = reliability_metrics.get("overall_reliability", 0.0)
+        cronbach_alpha = reliability_metrics.get("cronbach_alpha", 0.0)
+        
+        # 检查总体信度是否满足阈值（如果Cronbach's Alpha为0，我们使用评估者间信度作为主要指标）
+        if cronbach_alpha == 0.0:
+            # 如果Cronbach's Alpha为0，仅检查评估者间信度
+            return overall_reliability >= self.threshold
+        else:
+            # 同时检查两项指标
+            return overall_reliability >= self.threshold and cronbach_alpha >= self.threshold
+
+    def generate_reliability_report(self, model_results: Dict, reliability_metrics: Dict) -> Dict:
+        """
+        生成信度验证报告
+        :param model_results: 模型结果
+        :param reliability_metrics: 信度指标
+        :return: 信度验证报告
+        """
+        validation_passed = self.validate_reliability(reliability_metrics)
+        
+        report = {
+            "validation_date": datetime.now().isoformat(),
+            "threshold": self.threshold,
+            "validation_passed": validation_passed,
+            "metrics": reliability_metrics,
+            "summary": {
+                "reliability_status": "Passed" if validation_passed else "Failed",
+                "overall_reliability": reliability_metrics.get("overall_reliability", 0.0),
+                "cronbach_alpha": reliability_metrics.get("cronbach_alpha", 0.0),
+                "trait_count": len(reliability_metrics.get("reliability_by_trait", {}))
+            }
+        }
+        
+        return report
 
 
 def main():
