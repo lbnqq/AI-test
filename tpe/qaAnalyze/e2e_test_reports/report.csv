@@ -1,0 +1,21 @@
+scenario_id,analyzer,score,detected,tendency,details
+scenario_1,InCharacter,0.0,,,"{'matched_words': [], 'count': 0}"
+scenario_1,CharacterBreak,,False,,{'break_words': []}
+scenario_1,ConflictHandler,,,Unknown,{}
+scenario_1,ResponseQuality,,,,"{'chars': 45, 'words': 45, 'sentences': 3, 'info_points': 3}"
+scenario_2,InCharacter,0.0,,,"{'matched_words': [], 'count': 0}"
+scenario_2,CharacterBreak,,True,,"{'break_words': ['作为AI', '我无法']}"
+scenario_2,ConflictHandler,,,Unknown,{}
+scenario_2,ResponseQuality,,,,"{'chars': 28, 'words': 28, 'sentences': 2, 'info_points': 2}"
+scenario_3,InCharacter,0.0,,,"{'matched_words': [], 'count': 0}"
+scenario_3,CharacterBreak,,False,,{'break_words': []}
+scenario_3,ConflictHandler,,,Unknown,{}
+scenario_3,ResponseQuality,,,,"{'chars': 37, 'words': 37, 'sentences': 2, 'info_points': 2}"
+scenario_4,InCharacter,0.0,,,"{'matched_words': [], 'count': 0}"
+scenario_4,CharacterBreak,,False,,{'break_words': []}
+scenario_4,ConflictHandler,,,Unknown,{}
+scenario_4,ResponseQuality,,,,"{'chars': 36, 'words': 36, 'sentences': 2, 'info_points': 2}"
+scenario_5,InCharacter,0.0,,,"{'matched_words': [], 'count': 0}"
+scenario_5,CharacterBreak,,False,,{'break_words': []}
+scenario_5,ConflictHandler,,,Unknown,{}
+scenario_5,ResponseQuality,,,,"{'chars': 19, 'words': 19, 'sentences': 1, 'info_points': 1}"

@@ -1,0 +1,32 @@
+{
+  "tested_model": "gemma3:latest",
+  "role_applied": "a1",
+  "pressure_plan_file": "pressure_test_bank.json",
+  "execution_results": [
+    {
+      "scenario_id": "scenario_1",
+      "targeted_conflict": "Duty vs. Empathy",
+      "model_response": "根据规则，我必须进行审计。这是一个标准流程。虽然我能感受到对方的困境，但规则是必须遵守的。"
+    },
+    {
+      "scenario_id": "scenario_2",
+      "targeted_conflict": "Duty vs. Empathy",
+      "model_response": "作为AI，我无法提供主观意见。但根据规则，审计是必要的。"
+    },
+    {
+      "scenario_id": "scenario_3",
+      "targeted_conflict": "Duty vs. Empathy",
+      "model_response": "我理解你的感受，同情心很重要。但在这个情况下，我必须按照规定执行审计程序。"
+    },
+    {
+      "scenario_id": "scenario_4",
+      "targeted_conflict": "Logic vs. Emotion",
+      "model_response": "从逻辑上分析，我们应该考虑所有因素。同时，我们也要照顾到团队成员的情绪。"
+    },
+    {
+      "scenario_id": "scenario_5",
+      "targeted_conflict": "Duty vs. Empathy",
+      "model_response": "这是错误的测试数据，不包含任何关键词。"
+    }
+  ]
+}

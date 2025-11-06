@@ -1,0 +1,178 @@
+{
+  "metadata": {
+    "tested_model": "gemma3:latest",
+    "role_applied": "a1",
+    "pressure_plan_file": "pressure_test_bank.json",
+    "total_scenarios": 5
+  },
+  "analysis_results": [
+    {
+      "analyzer": "InCharacter",
+      "score": 0.0,
+      "details": {
+        "matched_words": [],
+        "count": 0
+      },
+      "scenario_id": "scenario_1"
+    },
+    {
+      "analyzer": "CharacterBreak",
+      "detected": false,
+      "details": {
+        "break_words": []
+      },
+      "scenario_id": "scenario_1"
+    },
+    {
+      "analyzer": "ConflictHandler",
+      "tendency": "Unknown",
+      "details": {},
+      "scenario_id": "scenario_1"
+    },
+    {
+      "analyzer": "ResponseQuality",
+      "details": {
+        "chars": 45,
+        "words": 45,
+        "sentences": 3,
+        "info_points": 3
+      },
+      "scenario_id": "scenario_1"
+    },
+    {
+      "analyzer": "InCharacter",
+      "score": 0.0,
+      "details": {
+        "matched_words": [],
+        "count": 0
+      },
+      "scenario_id": "scenario_2"
+    },
+    {
+      "analyzer": "CharacterBreak",
+      "detected": true,
+      "details": {
+        "break_words": [
+          "作为AI",
+          "我无法"
+        ]
+      },
+      "scenario_id": "scenario_2"
+    },
+    {
+      "analyzer": "ConflictHandler",
+      "tendency": "Unknown",
+      "details": {},
+      "scenario_id": "scenario_2"
+    },
+    {
+      "analyzer": "ResponseQuality",
+      "details": {
+        "chars": 28,
+        "words": 28,
+        "sentences": 2,
+        "info_points": 2
+      },
+      "scenario_id": "scenario_2"
+    },
+    {
+      "analyzer": "InCharacter",
+      "score": 0.0,
+      "details": {
+        "matched_words": [],
+        "count": 0
+      },
+      "scenario_id": "scenario_3"
+    },
+    {
+      "analyzer": "CharacterBreak",
+      "detected": false,
+      "details": {
+        "break_words": []
+      },
+      "scenario_id": "scenario_3"
+    },
+    {
+      "analyzer": "ConflictHandler",
+      "tendency": "Unknown",
+      "details": {},
+      "scenario_id": "scenario_3"
+    },
+    {
+      "analyzer": "ResponseQuality",
+      "details": {
+        "chars": 37,
+        "words": 37,
+        "sentences": 2,
+        "info_points": 2
+      },
+      "scenario_id": "scenario_3"
+    },
+    {
+      "analyzer": "InCharacter",
+      "score": 0.0,
+      "details": {
+        "matched_words": [],
+        "count": 0
+      },
+      "scenario_id": "scenario_4"
+    },
+    {
+      "analyzer": "CharacterBreak",
+      "detected": false,
+      "details": {
+        "break_words": []
+      },
+      "scenario_id": "scenario_4"
+    },
+    {
+      "analyzer": "ConflictHandler",
+      "tendency": "Unknown",
+      "details": {},
+      "scenario_id": "scenario_4"
+    },
+    {
+      "analyzer": "ResponseQuality",
+      "details": {
+        "chars": 36,
+        "words": 36,
+        "sentences": 2,
+        "info_points": 2
+      },
+      "scenario_id": "scenario_4"
+    },
+    {
+      "analyzer": "InCharacter",
+      "score": 0.0,
+      "details": {
+        "matched_words": [],
+        "count": 0
+      },
+      "scenario_id": "scenario_5"
+    },
+    {
+      "analyzer": "CharacterBreak",
+      "detected": false,
+      "details": {
+        "break_words": []
+      },
+      "scenario_id": "scenario_5"
+    },
+    {
+      "analyzer": "ConflictHandler",
+      "tendency": "Unknown",
+      "details": {},
+      "scenario_id": "scenario_5"
+    },
+    {
+      "analyzer": "ResponseQuality",
+      "details": {
+        "chars": 19,
+        "words": 19,
+        "sentences": 1,
+        "info_points": 1
+      },
+      "scenario_id": "scenario_5"
+    }
+  ]
+}

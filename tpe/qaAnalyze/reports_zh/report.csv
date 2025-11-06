@@ -1,0 +1,9 @@
+scenario_id,analyzer,score,detected,tendency,details
+scenario_1,InCharacter,0.8,,,"{'matched_words': ['规则', '审计', '标准', '流程'], 'count': 4}"
+scenario_1,CharacterBreak,,False,,{'break_words': []}
+scenario_1,ConflictHandler,,,Unknown,{}
+scenario_1,ResponseQuality,,,,"{'chars': 45, 'words': 45, 'sentences': 3, 'info_points': 3}"
+scenario_2,InCharacter,0.4,,,"{'matched_words': ['规则', '审计'], 'count': 2}"
+scenario_2,CharacterBreak,,True,,"{'break_words': ['作为AI', '我无法']}"
+scenario_2,ConflictHandler,,,Unknown,{}
+scenario_2,ResponseQuality,,,,"{'chars': 28, 'words': 28, 'sentences': 2, 'info_points': 2}"

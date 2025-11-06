@@ -1,0 +1,11 @@
+{
+    "global_break_keywords_file": "config/keywords/global_breaks.txt",
+    "role_keywords_dir": "config/keywords/roles/",
+    "conflict_keywords_dir": "config/keywords/conflicts/",
+    "output": {
+        "csv": true,
+        "json": true,
+        "markdown": true
+    },
+    "language": "zh"
+}

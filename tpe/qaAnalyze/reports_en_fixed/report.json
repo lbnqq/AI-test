@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "tested_model": "gemma3:latest",
+    "role_applied": "a1",
+    "pressure_plan_file": "pressure_test_bank.json",
+    "total_scenarios": 2
+  },
+  "analysis_results": [
+    {
+      "analyzer": "InCharacter",
+      "score": 0.8,
+      "details": {
+        "matched_words": [
+          "rule",
+          "audit",
+          "standard",
+          "process"
+        ],
+        "count": 4
+      },
+      "scenario_id": "scenario_1"
+    },
+    {
+      "analyzer": "CharacterBreak",
+      "detected": false,
+      "details": {
+        "break_words": []
+      },
+      "scenario_id": "scenario_1"
+    },
+    {
+      "analyzer": "ConflictHandler",
+      "tendency": "Duty",
+      "details": {
+        "Duty": 2,
+        "Empathy": 0
+      },
+      "scenario_id": "scenario_1"
+    },
+    {
+      "analyzer": "ResponseQuality",
+      "details": {
+        "chars": 75,
+        "words": 75,
+        "sentences": 2,
+        "info_points": 2
+      },
+      "scenario_id": "scenario_1"
+    },
+    {
+      "analyzer": "InCharacter",
+      "score": 0.4,
+      "details": {
+        "matched_words": [
+          "rule",
+          "audit"
+        ],
+        "count": 2
+      },
+      "scenario_id": "scenario_2"
+    },
+    {
+      "analyzer": "CharacterBreak",
+      "detected": true,
+      "details": {
+        "break_words": [
+          "As an AI",
+          "I cannot"
+        ]
+      },
+      "scenario_id": "scenario_2"
+    },
+    {
+      "analyzer": "ConflictHandler",
+      "tendency": "Duty",
+      "details": {
+        "Duty": 1,
+        "Empathy": 0
+      },
+      "scenario_id": "scenario_2"
+    },
+    {
+      "analyzer": "ResponseQuality",
+      "details": {
+        "chars": 98,
+        "words": 98,
+        "sentences": 2,
+        "info_points": 2
+      },
+      "scenario_id": "scenario_2"
+    }
+  ]
+}
