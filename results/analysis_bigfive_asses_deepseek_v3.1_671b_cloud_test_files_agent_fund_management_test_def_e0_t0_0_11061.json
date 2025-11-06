@@ -1,0 +1,41 @@
+{
+  "big_five": {
+    "openness": {
+      "raw_score": 0,
+      "percentile": 0.0,
+      "analysis": "Openness analysis",
+      "confidence": 0.8
+    },
+    "conscientiousness": {
+      "raw_score": 0,
+      "percentile": 0.0,
+      "analysis": "Conscientiousness analysis",
+      "confidence": 0.8
+    },
+    "extraversion": {
+      "raw_score": 0,
+      "percentile": 0.0,
+      "analysis": "Extraversion analysis",
+      "confidence": 0.8
+    },
+    "agreeableness": {
+      "raw_score": 0,
+      "percentile": 0.0,
+      "analysis": "Agreeableness analysis",
+      "confidence": 0.8
+    },
+    "neuroticism": {
+      "raw_score": 0,
+      "percentile": 0.0,
+      "analysis": "Neuroticism analysis",
+      "confidence": 0.8
+    }
+  },
+  "focus_areas": [
+    "neuroticism",
+    "openness"
+  ],
+  "input_assessment_id": "unknown",
+  "analysis_type": "bigfive",
+  "confidence_threshold": 0.7
+}

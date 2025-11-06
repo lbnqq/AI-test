@@ -63,7 +63,7 @@ Examples:
         sys.exit(1)
     
     # Set environment variables based on arguments
-    if args.ollama:
+    if hasattr(args, 'ollama') and args.ollama:
         os.environ['OLLAMA_HOST'] = args.host
         os.environ['PROVIDER'] = 'local'
     else:
