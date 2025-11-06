@@ -80,8 +80,30 @@
     }
   },
   "default_evaluators": [
-    "glm_4_6_cloud",
     "deepseek_v3_1_cloud",
+    "gpt_oss_120b_cloud",
     "qwen3_vl_cloud"
-  ]
+  ],
+  "cloud_primary_config": {
+    "base_evaluators": [
+      "deepseek_v3_1_cloud",
+      "gpt_oss_120b_cloud",
+      "qwen3_vl_cloud"
+    ],
+    "dispute_resolution": [
+      "qwen3_vl_cloud",
+      "gpt_oss_120b_cloud"
+    ],
+    "backup_evaluators": [
+      "qwen3:8b",
+      "deepseek-r1:8b"
+    ]
+  },
+  "implementation_settings": {
+    "use_cloud_models": true,
+    "cloud_priority": true,
+    "fallback_to_local": true,
+    "cost_monitoring": true,
+    "max_cloud_retries": 3
+  }
 }
