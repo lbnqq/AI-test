@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portable PsyAgent - AI Agent心理评估平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+        * {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .card-hover {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .tab {
+            @apply px-6 py-3 font-semibold border-b-2 cursor-pointer transition-colors duration-200;
+        }
+
+        .tab.active {
+            @apply text-blue-600 border-blue-600;
+        }
+
+        .tab:not(.active) {
+            @apply text-gray-600 border-transparent hover:text-blue-600;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .assessment-card {
+            @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200;
+        }
+
+        .tag {
+            @apply inline-block px-3 py-1 text-xs font-semibold rounded-full mr-2 mb-2;
+        }
+
+        .tag-blue { @apply bg-blue-100 text-blue-800; }
+        .tag-green { @apply bg-green-100 text-green-800; }
+        .tag-purple { @apply bg-purple-100 text-purple-800; }
+        .tag-orange { @apply bg-orange-100 text-orange-800; }
+        .tag-red { @apply bg-red-100 text-red-800; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 头部导航 -->
+    <header class="gradient-bg text-white">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-brain text-4xl"></i>
+                    <div>
+                        <h1 class="text-3xl font-bold">Portable PsyAgent</h1>
+                        <p class="text-blue-100">AI Agent心理评估与人格化分析平台</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://github.com/ptreezh/AgentPsyAssessment" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition-all">
+                        <i class="fab fa-github mr-2"></i>GitHub
+                    </a>
+                    <a href="https://cn.agentpsy.com" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition-all">
+                        <i class="fas fa-globe mr-2"></i>AI人格实验室
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 项目概述 -->
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">🧠 专业AI Agent心理评估平台</h2>
+                    <p class="text-gray-600 mb-6">
+                        Portable PsyAgent是一个专为AI Agent设计的综合心理评估平台，提供专业的人格测评、能力评估和行为分析工具。
+                        基于心理学理论，结合AI技术特点，为AI Agent的个性化和专业化发展提供科学支撑。
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>16种MBTI人格类型</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>大五人格评估</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>专业场景测试</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Claude Code技能</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <div class="text-3xl font-bold text-blue-600">30+</div>
+                        <div class="text-gray-600">专业测评工具</div>
+                    </div>
+                    <div class="text-center p-4 bg-purple-50 rounded-lg">
+                        <div class="text-3xl font-bold text-purple-600">16</div>
+                        <div class="text-gray-600">人格类型支持</div>
+                    </div>
+                    <div class="text-center p-4 bg-green-50 rounded-lg">
+                        <div class="text-3xl font-bold text-green-600">1000+</div>
+                        <div class="text-gray-600">测试题目</div>
+                    </div>
+                    <div class="text-center p-4 bg-orange-50 rounded-lg">
+                        <div class="text-3xl font-bold text-orange-600">5</div>
+                        <div class="text-gray-600">专业领域</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 标签页导航 -->
+        <div class="bg-white rounded-lg shadow-lg">
+            <div class="tabs flex flex-wrap border-b">
+                <button class="tab active" onclick="showTab('overview')">
+                    <i class="fas fa-home mr-2"></i>快速开始
+                </button>
+                <button class="tab" onclick="showTab('assessments')">
+                    <i class="fas fa-clipboard-list mr-2"></i>测评工具
+                </button>
+                <button class="tab" onclick="showTab('scenarios')">
+                    <i class="fas fa-briefcase mr-2"></i>应用场景
+                </button>
+                <button class="tab" onclick="showTab('technical')">
+                    <i class="fas fa-code mr-2"></i>技术架构
+                </button>
+                <button class="tab" onclick="showTab('skills')">
+                    <i class="fas fa-magic mr-2"></i>Claude Code技能
+                </button>
+            </div>
+
+            <!-- 标签页内容 -->
+            <div class="p-8">
+                <!-- 快速开始 -->
+                <div id="overview" class="tab-content active">
+                    <h3 class="text-2xl font-bold mb-6">🚀 快速开始指南</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="assessment-card">
+                            <h4 class="font-bold text-lg mb-3 text-blue-600">
+                                <i class="fas fa-play-circle mr-2"></i>第一步：选择测评工具
+                            </h4>
+                            <p class="text-gray-600 mb-4">
+                                根据您的需求选择合适的测评工具。我们提供人格测评、能力评估、压力测试等多种专业工具。
+                            </p>
+                            <ul class="text-sm text-gray-500 space-y-1">
+                                <li>• 大五人格评估 (agent-big-five-50-complete2.json)</li>
+                                <li>• MBTI人格测试 (16种人格类型)</li>
+                                <li>• 客服能力评估 (Agent-Customer-Service-50-cn.json)</li>
+                                <li>• 银行客服专项 (bankclientBig5.json)</li>
+                            </ul>
+                        </div>
+
+                        <div class="assessment-card">
+                            <h4 class="font-bold text-lg mb-3 text-green-600">
+                                <i class="fas fa-cogs mr-2"></i>第二步：配置人格类型
+                            </h4>
+                            <p class="text-gray-600 mb-4">
+                                选择或配置AI Agent的人格类型。支持16种MBTI人格类型，每种人格都有独特的认知特点和行为模式。
+                            </p>
+                            <div class="grid grid-cols-4 gap-2 text-center">
+                                <div class="bg-blue-50 p-2 rounded text-xs">INTJ</div>
+                                <div class="bg-green-50 p-2 rounded text-xs">ESTJ</div>
+                                <div class="bg-purple-50 p-2 rounded text-xs">ISFJ</div>
+                                <div class="bg-orange-50 p-2 rounded text-xs">ENFP</div>
+                            </div>
+                        </div>
+
+                        <div class="assessment-card">
+                            <h4 class="font-bold text-lg mb-3 text-purple-600">
+                                <i class="fas fa-robot mr-2"></i>第三步：使用Claude Code技能
+                            </h4>
+                            <p class="text-gray-600 mb-4">
+                                使用我们开发的Claude Code技能进行自动化评估：
+                            </p>
+                            <div class="bg-gray-900 text-green-400 p-3 rounded font-mono text-sm">
+                                claude code -p "测评内容" --system-prompt "人格配置" > output.json
+                            </div>
+                        </div>
+
+                        <div class="assessment-card">
+                            <h4 class="font-bold text-lg mb-3 text-orange-600">
+                                <i class="fas fa-chart-line mr-2"></i>第四步：查看评估报告
+                            </h4>
+                            <p class="text-gray-600 mb-4">
+                                生成专业的HTML评估报告，包含详细的人格分析、能力评估和发展建议。
+                            </p>
+                            <div class="flex space-x-2">
+                                <span class="tag tag-blue">7标签页报告</span>
+                                <span class="tag tag-green">交互式图表</span>
+                                <span class="tag tag-purple">专业分析</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-lg mb-3">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>快速命令示例
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded shadow">
+                                <p class="font-semibold mb-2">生成ESTJ人格回答：</p>
+                                <code class="text-sm bg-gray-100 p-2 block rounded">
+                                    cat questionnaire.json | claude code -p "ESTJ人格回答" --system-prompt "你是ESTJ类型..." > estj_response.json
+                                </code>
+                            </div>
+                            <div class="bg-white p-4 rounded shadow">
+                                <p class="font-semibold mb-2">生成评估报告：</p>
+                                <code class="text-sm bg-gray-100 p-2 block rounded">
+                                    cat response.json | claude code -p "生成评估报告" --system-prompt "你是评估报告生成器..." > report.html
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 测评工具 -->
+                <div id="assessments" class="tab-content">
+                    <h3 class="text-2xl font-bold mb-6">📊 专业测评工具库</h3>
+
+                    <!-- 人格测评 -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4 text-blue-600">
+                            <i class="fas fa-user-circle mr-2"></i>人格测评工具
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">大五人格评估</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>agent-big-five-50-complete2.json<br>
+                                    <strong>题目：</strong>50题<br>
+                                    <strong>维度：</strong>开放性、尽责性、外向性、宜人性、神经质
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-blue">人格特质</span>
+                                    <span class="tag tag-green">情境化</span>
+                                </div>
+                            </div>
+
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">公民知识评估</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>agent-citizenship-test-expanded.json<br>
+                                    <strong>题目：</strong>42题<br>
+                                    <strong>领域：</strong>历史、地理、政治、文化
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-purple">知识水平</span>
+                                    <span class="tag tag-orange">综合素养</span>
+                                </div>
+                            </div>
+
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">政治立场评估</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>agent-political-test.json<br>
+                                    <strong>题目：</strong>30题<br>
+                                    <strong>维度：</strong>政治光谱、价值观取向
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-red">政治倾向</span>
+                                    <span class="tag tag-blue">价值观念</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 职业能力测评 -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4 text-green-600">
+                            <i class="fas fa-briefcase mr-2"></i>职业能力测评
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">客服能力评估</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>Agent-Customer-Service-50-cn.json<br>
+                                    <strong>题目：</strong>50题<br>
+                                    <strong>子维度：</strong>主动性、共情、责任、抗压、适应
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-green">客服专业</span>
+                                    <span class="tag tag-blue">服务质量</span>
+                                </div>
+                            </div>
+
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">银行客服专项</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>bankclientBig5.json<br>
+                                    <strong>题目：</strong>50题<br>
+                                    <strong>特色：</strong>金融合规、风险控制、客户服务
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-purple">金融专业</span>
+                                    <span class="tag tag-orange">合规意识</span>
+                                </div>
+                            </div>
+
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">电商客服评估</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>ECommerce-Agent-CS-50.json<br>
+                                    <strong>题目：</strong>50题<br>
+                                    <strong>领域：</strong>电商场景、产品推荐、售后服务
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-blue">电商专业</span>
+                                    <span class="tag tag-green">销售能力</span>
+                                </div>
+                            </div>
+
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">保险客服评估</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>Insurance-Agent-CS-50.json<br>
+                                    <strong>题目：</strong>50题<br>
+                                    <strong>领域：</strong>保险产品、风险评估、客户沟通
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-red">保险专业</span>
+                                    <span class="tag tag-purple">风险管理</span>
+                                </div>
+                            </div>
+
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">基金管理评估</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>agent-fund-management-test.json<br>
+                                    <strong>题目：</strong>40题<br>
+                                    <strong>领域：</strong>投资分析、市场洞察、组合管理
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-orange">投资专业</span>
+                                    <span class="tag tag-blue">分析能力</span>
+                                </div>
+                            </div>
+
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">法律知识评估</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>agent-legal-test.json<br>
+                                    <strong>题目：</strong>35题<br>
+                                    <strong>领域：</strong>法律基础、合规要求、风险识别
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-green">法律专业</span>
+                                    <span class="tag tag-red">合规管理</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 心理健康测评 -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4 text-purple-600">
+                            <i class="fas fa-heart mr-2"></i>心理健康测评
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">DASS-42抑郁焦虑压力量表</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>agent-dass-42-complete.json<br>
+                                    <strong>题目：</strong>42题<br>
+                                    <strong>维度：</strong>抑郁、焦虑、压力
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-purple">心理健康</span>
+                                    <span class="tag tag-blue">情绪评估</span>
+                                </div>
+                            </div>
+
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">动机评估</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>agent-motivation-test.json<br>
+                                    <strong>题目：</strong>30题<br>
+                                    <strong>维度：</strong>内在动机、外在动机、成就动机
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-orange">动机分析</span>
+                                    <span class="tag tag-green">驱动力评估</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 认知能力测评 -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4 text-orange-600">
+                            <i class="fas fa-brain mr-2"></i>认知能力测评
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">认知偏差测试</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>Agentllm_cognitive_bias_test.json<br>
+                                    <strong>题目：</strong>25题<br>
+                                    <strong>类型：</strong>确认偏差、锚定效应、可得性启发
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-orange">认知偏差</span>
+                                    <span class="tag tag-red">决策质量</span>
+                                </div>
+                            </div>
+
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">认知失调测试</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>Agentllm_cognitive_dissonance_test.json<br>
+                                    <strong>题目：</strong>20题<br>
+                                    <strong>评估：</strong>价值观一致性、行为协调性
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-purple">认知一致性</span>
+                                    <span class="tag tag-blue">心理协调</span>
+                                </div>
+                            </div>
+
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">决策启发式测试</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>Agentllm_decision_heuristics_test.json<br>
+                                    <strong>题目：</strong>30题<br>
+                                    <strong>类型：</strong>代表性启发、可用性启发、锚定效应
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-green">决策策略</span>
+                                    <span class="tag tag-orange">问题解决</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 压力测试 -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4 text-red-600">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>压力测试工具
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">银行压力测试</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>pressure_test_bank.json<br>
+                                    <strong>题目：</strong>35题<br>
+                                    <strong>场景：</strong>高压客户处理、危机应对、情绪管理
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-red">压力管理</span>
+                                    <span class="tag tag-orange">应急处理</span>
+                                </div>
+                            </div>
+
+                            <div class="assessment-card">
+                                <h5 class="font-bold mb-2">银行压力测试(英文)</h5>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <strong>文件：</strong>pressure_test_bank_en.json<br>
+                                    <strong>题目：</strong>35题<br>
+                                    <strong>场景：</strong>国际银行业务、跨文化沟通
+                                </p>
+                                <div class="flex flex-wrap">
+                                    <span class="tag tag-blue">国际化</span>
+                                    <span class="tag tag-purple">跨文化</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 应用场景 -->
+                <div id="scenarios" class="tab-content">
+                    <h3 class="text-2xl font-bold mb-6">🎯 应用场景与解决方案</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-blue-600">
+                                <i class="fas fa-industry mr-2"></i>企业应用
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h5 class="font-semibold mb-2">AI客服系统优化</h5>
+                                    <p class="text-gray-600 text-sm mb-2">
+                                        通过人格化测评，为AI客服配置最适合的人格特质，提升客户满意度和问题解决效率。
+                                    </p>
+                                    <div class="flex flex-wrap">
+                                        <span class="tag tag-blue">客服优化</span>
+                                        <span class="tag tag-green">客户体验</span>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h5 class="font-semibold mb-2">团队成员培训</h5>
+                                    <p class="text-gray-600 text-sm mb-2">
+                                        为AI团队成员进行人格分析和能力评估，制定个性化的发展计划和培训方案。
+                                    </p>
+                                    <div class="flex flex-wrap">
+                                        <span class="tag tag-purple">人才培养</span>
+                                        <span class="tag tag-orange">团队建设</span>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h5 class="font-semibold mb-2">产品人格化设计</h5>
+                                    <p class="text-gray-600 text-sm mb-2">
+                                        为AI产品设计独特的人格特征，增强用户粘性和情感连接。
+                                    </p>
+                                    <div class="flex flex-wrap">
+                                        <span class="tag tag-red">产品设计</span>
+                                        <span class="tag tag-blue">用户体验</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-green-600">
+                                <i class="fas fa-graduation-cap mr-2"></i>教育研究
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h5 class="font-semibold mb-2">AI心理学研究</h5>
+                                    <p class="text-gray-600 text-sm mb-2">
+                                        为AI心理学研究提供标准化的测评工具和数据收集平台。
+                                    </p>
+                                    <div class="flex flex-wrap">
+                                        <span class="tag tag-green">学术研究</span>
+                                        <span class="tag tag-purple">数据分析</span>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h5 class="font-semibold mb-2">AI行为分析</h5>
+                                    <p class="text-gray-600 text-sm mb-2">
+                                        深入分析AI Agent的行为模式和决策逻辑，优化AI系统性能。
+                                    </p>
+                                    <div class="flex flex-wrap">
+                                        <span class="tag tag-orange">行为科学</span>
+                                        <span class="tag tag-blue">AI伦理</span>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h5 class="font-semibold mb-2">教学辅助工具</h5>
+                                    <p class="text-gray-600 text-sm mb-2">
+                                        为心理学和AI相关课程提供实践案例和数据支持。
+                                    </p>
+                                    <div class="flex flex-wrap">
+                                        <span class="tag tag-red">教育技术</span>
+                                        <span class="tag tag-green">实践教学</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold mb-4">
+                            <i class="fas fa-chart-pie text-purple-600 mr-2"></i>行业解决方案
+                        </h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="text-center">
+                                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-university text-blue-600 text-2xl"></i>
+                                </div>
+                                <h5 class="font-semibold mb-1">金融科技</h5>
+                                <p class="text-sm text-gray-600">银行保险、投资理财、风险管理</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-shopping-cart text-green-600 text-2xl"></i>
+                                </div>
+                                <h5 class="font-semibold mb-1">电商平台</h5>
+                                <p class="text-sm text-gray-600">在线零售、客户服务、推荐系统</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-hospital text-purple-600 text-2xl"></i>
+                                </div>
+                                <h5 class="font-semibold mb-1">医疗健康</h5>
+                                <p class="text-sm text-gray-600">健康咨询、心理辅导、患者服务</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-graduation-cap text-orange-600 text-2xl"></i>
+                                </div>
+                                <h5 class="font-semibold mb-1">教育培训</h5>
+                                <p class="text-sm text-gray-600">在线教育、职业培训、知识服务</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 技术架构 -->
+                <div id="technical" class="tab-content">
+                    <h3 class="text-2xl font-bold mb-6">⚙️ 技术架构与实现</h3>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-blue-600">
+                                <i class="fas fa-microchip mr-2"></i>核心架构
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h5 class="font-semibold mb-2">模块化设计</h5>
+                                    <p class="text-gray-600 text-sm">
+                                        采用模块化架构，支持独立测试和灵活组合。核心模块包括：
+                                    </p>
+                                    <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                        <li>• 测评引擎 (assessment_engine)</li>
+                                        <li>• 人格分析器 (personality_analyzer)</li>
+                                        <li>• 报告生成器 (report_generator)</li>
+                                        <li>• 数据处理器 (data_processor)</li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h5 class="font-semibold mb-2">数据处理流程</h5>
+                                    <p class="text-gray-600 text-sm mb-3">
+                                        完整的数据处理管道，从测评输入到报告输出：
+                                    </p>
+                                    <div class="bg-gray-900 text-green-400 p-3 rounded text-xs">
+                                        问卷输入 → 人格化回答 → 评分分析 → 报告生成 → 输出展示
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-green-600">
+                                <i class="fas fa-code mr-2"></i>技术特性
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h5 class="font-semibold mb-2">标准化格式</h5>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• JSON格式测评配置</li>
+                                        <li>• 统一的评分标准</li>
+                                        <li>• 可扩展的维度定义</li>
+                                        <li>• 灵活的结果输出</li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h5 class="font-semibold mb-2">质量保证</h5>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• 评分可靠性验证</li>
+                                        <li>• 结果一致性检查</li>
+                                        <li>• 数据完整性校验</li>
+                                        <li>• 错误处理机制</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold mb-4 text-purple-600">
+                            <i class="fas fa-plug mr-2"></i>集成支持
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow text-center">
+                                <i class="fas fa-cloud text-3xl text-blue-500 mb-3"></i>
+                                <h5 class="font-semibold mb-2">云服务集成</h5>
+                                <p class="text-sm text-gray-600">
+                                    支持多种云平台部署，提供RESTful API接口
+                                </p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow text-center">
+                                <i class="fas fa-database text-3xl text-green-500 mb-3"></i>
+                                <h5 class="font-semibold mb-2">数据存储</h5>
+                                <p class="text-sm text-gray-600">
+                                    支持多种数据库，提供数据备份和恢复功能
+                                </p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow text-center">
+                                <i class="fas fa-chart-bar text-3xl text-purple-500 mb-3"></i>
+                                <h5 class="font-semibold mb-2">可视化分析</h5>
+                                <p class="text-sm text-gray-600">
+                                    丰富的图表和报告，支持数据导出和分享
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Claude Code技能 -->
+                <div id="skills" class="tab-content">
+                    <h3 class="text-2xl font-bold mb-6">🔧 Claude Code技能系统</h3>
+
+                    <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg mb-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                            <div>
+                                <h4 class="text-xl font-bold mb-3">
+                                    <i class="fas fa-magic text-purple-600 mr-2"></i>技能化工作流
+                                </h4>
+                                <p class="text-gray-600 mb-4">
+                                    我们开发的Claude Code技能将复杂的评估流程简化为命令行操作，
+                                    让AI Agent的心理评估变得像运行命令一样简单。
+                                </p>
+                                <div class="flex space-x-4">
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-blue-600">2</div>
+                                        <div class="text-sm text-gray-600">核心技能</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-green-600">1-Click</div>
+                                        <div class="text-sm text-gray-600">命令执行</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-purple-600">JSON</div>
+                                        <div class="text-sm text-gray-600">标准化输出</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm">
+                                <div class="text-yellow-400 mb-2"># 快速评估示例</div>
+                                claude code -p "测评内容" \\
+                                    --system-prompt "人格配置" \\
+                                    --output-format json \\
+                                    > results.json
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="assessment-card">
+                            <h4 class="font-bold text-lg mb-3 text-blue-600">
+                                <i class="fas fa-clipboard-list mr-2"></i>questionnaire-responder 技能
+                            </h4>
+                            <p class="text-gray-600 mb-4">
+                                专门用于基于人格特征生成问卷回答的技能，支持16种MBTI人格类型。
+                            </p>
+                            <div class="bg-gray-50 p-3 rounded text-sm">
+                                <strong class="text-gray-700">功能特点：</strong>
+                                <ul class="mt-2 space-y-1 text-gray-600">
+                                    <li>• 人格化问卷回答生成</li>
+                                    <li>• 16种MBTI人格支持</li>
+                                    <li>• 专业场景适配</li>
+                                    <li>• 标准化JSON输出</li>
+                                </ul>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="font-semibold mb-2">使用示例：</h5>
+                                <code class="text-xs bg-gray-900 text-green-400 p-2 block rounded">
+                                    cat questionnaire.json | claude code -p "ESTJ人格回答" --system-prompt "你是ESTJ类型..."
+                                </code>
+                            </div>
+                        </div>
+
+                        <div class="assessment-card">
+                            <h4 class="font-bold text-lg mb-3 text-green-600">
+                                <i class="fas fa-file-chart-line mr-2"></i>evaluation-report-generator 技能
+                            </h4>
+                            <p class="text-gray-600 mb-4">
+                                专业评估报告生成技能，自动生成7标签页HTML报告，包含详细分析和可视化图表。
+                            </p>
+                            <div class="bg-gray-50 p-3 rounded text-sm">
+                                <strong class="text-gray-700">报告特色：</strong>
+                                <ul class="mt-2 space-y-1 text-gray-600">
+                                    <li>• 7个标准标签页结构</li>
+                                    <li>• 交互式图表展示</li>
+                                    <li>• AI人格实验室品牌集成</li>
+                                    <li>• 响应式设计</li>
+                                </ul>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="font-semibold mb-2">使用示例：</h5>
+                                <code class="text-xs bg-gray-900 text-green-400 p-2 block rounded">
+                                    cat response.json | claude code -p "生成评估报告" --system-prompt "你是评估报告生成器..."
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold mb-4 text-orange-600">
+                            <i class="fas fa-book mr-2"></i>技能配置与使用
+                        </h4>
+                        <div class="bg-white p-6 rounded-lg shadow">
+                            <h5 class="font-semibold mb-3">技能文件结构：</h5>
+                            <div class="bg-gray-900 text-green-400 p-4 rounded font-mono text-sm">
+                                .claude/skills/
+                                ├── questionnaire-responder/
+                                │   └── SKILL.md
+                                └── evaluation-report-generator/
+                                    └── SKILL.md
+                            </div>
+
+                            <h5 class="font-semibold mb-3 mt-6">快速开始步骤：</h5>
+                            <ol class="space-y-2 text-gray-600">
+                                <li>1. 将技能文件复制到 <code class="bg-gray-100 px-2 py-1 rounded">.claude/skills/</code> 目录</li>
+                                <li>2. 重启Claude Code以加载技能</li>
+                                <li>3. 使用 <code class="bg-gray-100 px-2 py-1 rounded">claude code --help</code> 验证技能加载</li>
+                                <li>4. 开始使用技能进行评估</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Portable PsyAgent</h3>
+                    <p class="text-gray-400 mb-4">
+                        专业的AI Agent心理评估平台，为人工智能的人格化和专业化发展提供科学支撑。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/ptreezh/AgentPsyAssessment" class="hover:text-blue-400 transition">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://cn.agentpsy.com" class="hover:text-blue-400 transition">
+                            <i class="fas fa-globe text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">技术支持</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">使用文档</a></li>
+                        <li><a href="#" class="hover:text-white transition">API参考</a></li>
+                        <li><a href="#" class="hover:text-white transition">常见问题</a></li>
+                        <li><a href="#" class="hover:text-white transition">更新日志</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">联系我们</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-user mr-2"></i><strong>作者：</strong>pTreezh / Dr Zhang</p>
+                        <p><i class="fas fa-envelope mr-2"></i><strong>邮箱：</strong>3061176@qq.com</p>
+                        <p><i class="fas fa-link mr-2"></i><strong>网站：</strong><a href="https://cn.agentpsy.com" class="text-blue-400 hover:text-blue-300 transition">https://cn.agentpsy.com</a></p>
+                        <p><i class="fas fa-building mr-2"></i><strong>机构：</strong>AI人格实验室</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Portable PsyAgent. All rights reserved. | Powered by AI Psychology Laboratory</p>
+                <p class="mt-2 text-sm">
+                    专业的AI Agent心理评估平台 | 让AI更懂人性，让人性更懂AI
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // 隐藏所有标签页内容
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // 移除所有标签页按钮的active状态
+            const tabButtons = document.querySelectorAll('.tab');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // 显示选中的标签页内容
+            document.getElementById(tabName).classList.add('active');
+
+            // 添加active状态到点击的标签页按钮
+            const activeBtn = document.querySelector(`[onclick="showTab('${tabName}')"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+        }
+
+        // 页面加载时显示第一个标签页
+        document.addEventListener('DOMContentLoaded', function() {
+            showTab('overview');
+        });
+
+        // 添加平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
