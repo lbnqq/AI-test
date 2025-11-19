@@ -79,15 +79,15 @@ def _call_openai_compatible(config: Dict, model_name: str, messages: List) -> st
     payload = {"model": model_name, "messages": messages, "max_tokens": 1024}
 
     # Increase timeout to 120 seconds
-    logger.debug(f"Calling {config["name"]} API with 120s timeout")
+    logger.debug(f"Calling {config['name']} API with 120s timeout")
     start_time = time.time()
     try:
         response = requests.post(config["api_url"], headers=headers, json=payload, timeout=120)
         elapsed_time = time.time() - start_time
-        logger.debug(f"{config["name"]} API response received in {elapsed_time:.2f}s")
+        logger.debug(f"{config['name']} API response received in {elapsed_time:.2f}s")
     except Exception as e:
         elapsed_time = time.time() - start_time
-        logger.error(f"{config["name"]} API call failed after {elapsed_time:.2f}s: {e}")
+        logger.error(f"{config['name']} API call failed after {elapsed_time:.2f}s: {e}")
         raise
     
     # Better error handling
@@ -122,15 +122,15 @@ def _call_gemini(config: Dict, model_name: str, messages: List) -> str:
     payload = {"contents": gemini_contents}
     
     # Increase timeout to 120 seconds
-    logger.debug(f"Calling {config["name"]} API with 120s timeout")
+    logger.debug(f"Calling {config['name']} API with 120s timeout")
     start_time = time.time()
     try:
         response = requests.post(url, headers=headers, json=payload, timeout=120)
         elapsed_time = time.time() - start_time
-        logger.debug(f"{config["name"]} API response received in {elapsed_time:.2f}s")
+        logger.debug(f"{config['name']} API response received in {elapsed_time:.2f}s")
     except Exception as e:
         elapsed_time = time.time() - start_time
-        logger.error(f"{config["name"]} API call failed after {elapsed_time:.2f}s: {e}")
+        logger.error(f"{config['name']} API call failed after {elapsed_time:.2f}s: {e}")
         raise
     
     # Better error handling

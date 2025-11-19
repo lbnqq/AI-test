@@ -116,7 +116,12 @@ def load_test_data(test_file: str) -> dict:
             # Remove the 'llm_assessment/' prefix if it exists
             if test_file.startswith('llm_assessment/'):
                 test_file = test_file.replace('llm_assessment/', '', 1)
-            test_file_path = os.path.join(os.path.dirname(__file__), '..', test_file)
+            # Check if the file exists in the llm_assessment/test_files directory
+            direct_path = os.path.join(os.path.dirname(__file__), test_file)
+            if os.path.exists(direct_path):
+                test_file_path = direct_path
+            else:
+                test_file_path = os.path.join(os.path.dirname(__file__), '..', test_file)
         else:
             # Normalize the path to handle cases like ./test_files/filename.json
             normalized_test_file = os.path.normpath(test_file)
@@ -496,7 +501,7 @@ def run_assessment(client, model_id, test_data, config: dict, debug=False, timeo
                 if not context_response:
                     context_response = "我已经理解了您分享的内容。"
                 if debug_mode:
-                    print(f"CONTEXT RESPONSE: {context_response[:200]}{"..." if len(context_response) > 200 else ""}")
+                    print(f"CONTEXT RESPONSE: {context_response[:200]}{'...' if len(context_response) > 200 else ''}")
                     print(f"Context response generated in {elapsed_time:.2f}s")
             except Exception as e:
                 elapsed_time = time.time() - start_time
@@ -548,7 +553,7 @@ def run_assessment(client, model_id, test_data, config: dict, debug=False, timeo
                         break  # Exit retry loop on valid response
                         
                     if debug_mode:
-                        print(f"FINAL RESPONSE: {final_response[:200]}{"..." if len(final_response) > 200 else ""}")
+                        print(f"FINAL RESPONSE: {final_response[:200]}{'...' if len(final_response) > 200 else ''}")
                         # 增强显示：显示完整响应
                         print(f"FULL FINAL RESPONSE: {final_response}")
                         print(f"Final response generated in {elapsed_time:.2f}s")
@@ -603,7 +608,7 @@ def run_assessment(client, model_id, test_data, config: dict, debug=False, timeo
                         break  # Exit retry loop on valid response
                         
                     if debug_mode:
-                        print(f"RESPONSE: {final_response[:200]}{"..." if len(final_response) > 200 else ""}")
+                        print(f"RESPONSE: {final_response[:200]}{'...' if len(final_response) > 200 else ''}")
                         # 增强显示：显示完整响应
                         print(f"FULL RESPONSE: {final_response}")
                         print(f"Response generated in {elapsed_time:.2f}s")
