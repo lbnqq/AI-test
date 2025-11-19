@@ -1,0 +1,17 @@
+{
+  "assessment_results": [],
+  "assessment_metadata": {
+    "stress_factors_applied": {
+      "emotional_stress_level": 0,
+      "cognitive_trap_type": null,
+      "context_load_tokens": 0
+    },
+    "tested_model": "qwen2.5-coder:14b",
+    "role_applied": "def",
+    "test_name": "Agentllm_decision_heuristics_test.json",
+    "assessment_timestamp": "2025-11-11T05:56:42.678616",
+    "log_file": "logs/assessments/assessment_qwen2.5-coder_14b_Agentllm_decision_heuristics_test.json_def_20251111_055642.log",
+    "error_info": "'test_bank'",
+    "assessment_status": "failed"
+  }
+}

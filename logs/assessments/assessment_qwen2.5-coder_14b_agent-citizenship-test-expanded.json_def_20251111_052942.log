@@ -1,0 +1,315 @@
+=== Assessment Log ===
+Start Time: 2025-11-11T05:29:42.570995
+Model: qwen2.5-coder_14b
+Test: agent-citizenship-test-expanded.json
+Role: def
+==================================================
+
+{
+  "timestamp": "2025-11-11T05:31:47.968036",
+  "session_id": "question_0_0",
+  "type": "complete_session",
+  "extracted_response": "中国的四大发明是造纸术、指南针、火药和印刷术。这些发明在世界历史上具有重要的地位，对人类文明的发展产生了深远的影响。",
+  "metadata": {
+    "question_id": 0,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:32:24.854096",
+  "session_id": "question_1_1",
+  "type": "complete_session",
+  "extracted_response": "中国改革开放开始于1978年。",
+  "metadata": {
+    "question_id": 1,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:35:35.584976",
+  "session_id": "question_2_2",
+  "type": "complete_session",
+  "extracted_response": "中国历史上第一个统一的封建王朝是秦朝，秦始皇（公元前259年—公元前210年）是中国的第一个皇帝，他结束了战国时期的分裂局面，实现了国家的统一。",
+  "metadata": {
+    "question_id": 2,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:36:19.568846",
+  "session_id": "question_3_3",
+  "type": "complete_session",
+  "extracted_response": "中国的万里长城始建于秦朝，具体是在公元前221年由秦始皇修建。这是中国古代最为著名的防御工程之一，主要目的是抵御北方游牧民族的侵袭。",
+  "metadata": {
+    "question_id": 3,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:37:43.163077",
+  "session_id": "question_4_4",
+  "type": "complete_session",
+  "extracted_response": "中国近代史的开端是鸦片战争，发生于1840年，这是英国对中国发动的一场侵略战争。这次战争导致中国的主权和领土完整遭到严重损害，并逐渐陷入半殖民地半封建社会的境地。",
+  "metadata": {
+    "question_id": 4,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:38:03.059581",
+  "session_id": "question_5_5",
+  "type": "complete_session",
+  "extracted_response": "中国共产党成立于1921年。",
+  "metadata": {
+    "question_id": 5,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:38:51.749177",
+  "session_id": "question_6_6",
+  "type": "complete_session",
+  "extracted_response": "中华人民共和国成立于1949年。",
+  "metadata": {
+    "question_id": 6,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:39:34.764393",
+  "session_id": "question_7_7",
+  "type": "complete_session",
+  "extracted_response": "中国恢复在联合国合法席位是在1971年。",
+  "metadata": {
+    "question_id": 7,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:40:09.156180",
+  "session_id": "question_8_8",
+  "type": "complete_session",
+  "extracted_response": "中国的首都是北京。",
+  "metadata": {
+    "question_id": 8,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:40:30.872527",
+  "session_id": "question_9_9",
+  "type": "complete_session",
+  "extracted_response": "中国最长的河流是长江。",
+  "metadata": {
+    "question_id": 9,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:40:45.463906",
+  "session_id": "question_10_10",
+  "type": "complete_session",
+  "extracted_response": "台湾岛",
+  "metadata": {
+    "question_id": 10,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:41:17.563753",
+  "session_id": "question_11_11",
+  "type": "complete_session",
+  "extracted_response": "中国的陆地面积约为960万平方公里。",
+  "metadata": {
+    "question_id": 11,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:41:43.552210",
+  "session_id": "question_12_12",
+  "type": "complete_session",
+  "extracted_response": "中国的省级行政区包括34个：23个省，5个自治区，4个直辖市，以及2个特别行政区。",
+  "metadata": {
+    "question_id": 12,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:42:12.945229",
+  "session_id": "question_13_13",
+  "type": "complete_session",
+  "extracted_response": "中国的国土地域范围从东到西大约是5200公里。",
+  "metadata": {
+    "question_id": 13,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:42:43.453617",
+  "session_id": "question_14_14",
+  "type": "complete_session",
+  "extracted_response": "中国的最大湖泊是青海湖。",
+  "metadata": {
+    "question_id": 14,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:43:15.369006",
+  "session_id": "question_15_15",
+  "type": "complete_session",
+  "extracted_response": "中国最高的山峰是珠穆朗玛峰，位于喜马拉雅山脉，其海拔约为8,848.86米。",
+  "metadata": {
+    "question_id": 15,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:43:49.463785",
+  "session_id": "question_16_16",
+  "type": "complete_session",
+  "extracted_response": "中国的根本政治制度是人民代表大会制度。",
+  "metadata": {
+    "question_id": 16,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:44:31.953204",
+  "session_id": "question_17_17",
+  "type": "complete_session",
+  "extracted_response": "中华人民共和国主席由全国人民代表大会选举产生。根据中华人民共和国宪法规定，全国人民代表大会是最高国家权力机关，其常设机关为全国人民代表大会常务委员会。全国人民代表大会和全国人民代表大会常务委员会行使国家立法权。国家主席的产生方式是全国人民代表大会全体会议的选举。",
+  "metadata": {
+    "question_id": 17,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:45:02.652013",
+  "session_id": "question_18_18",
+  "type": "complete_session",
+  "extracted_response": "中国的最高国家权力机关是全国人民代表大会。",
+  "metadata": {
+    "question_id": 18,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:45:36.550151",
+  "session_id": "question_19_19",
+  "type": "complete_session",
+  "extracted_response": "中国的根本大法是中华人民共和国宪法，它是国家的最高法律效力。",
+  "metadata": {
+    "question_id": 19,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:46:07.465997",
+  "session_id": "question_20_20",
+  "type": "complete_session",
+  "extracted_response": "2018年",
+  "metadata": {
+    "question_id": 20,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:46:26.742842",
+  "session_id": "question_21_21",
+  "type": "complete_session",
+  "extracted_response": "中国的国家性质是人民民主专政的社会主义国家。",
+  "metadata": {
+    "question_id": 21,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}

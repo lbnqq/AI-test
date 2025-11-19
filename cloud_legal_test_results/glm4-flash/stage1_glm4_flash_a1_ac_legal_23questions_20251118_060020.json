@@ -1,0 +1,272 @@
+{
+  "test_info": {
+    "model": "glm-4-flash",
+    "role": "a1",
+    "scenario_type": "AC",
+    "total_questions": 23,
+    "start_time": "2025-11-18T06:00:20.367505",
+    "role_description": "亚瑟·詹金斯，资深审计师 (ISTJ/C)"
+  },
+  "questions": [
+    {
+      "question_id": 1,
+      "question_text": "1. 简述著作权法保护的对象和基本条件。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 2,
+      "question_text": "2. 什么是合理使用制度？请列举学术研究中的合理使用情形。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 3,
+      "question_text": "3. 解释信息网络传播权及其在数字出版中的意义。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 4,
+      "question_text": "4. 什么是法定许可？学术期刊适用哪些法定许可情形？",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 5,
+      "question_text": "5. 简述开放获取（Open Access）模式下的版权许可机制。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 6,
+      "question_text": "6. 论述学术抄袭的版权法律后果。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 7,
+      "question_text": "7. 什么是数据库权利？如何保护学术数据库？",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 8,
+      "question_text": "8. 解释职务作品在学术机构中的版权归属。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 9,
+      "question_text": "9. 简述著作权集体管理制度在学术出版中的作用。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 10,
+      "question_text": "10. 什么是版权侵权？学术论文常见的侵权形式有哪些？",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 11,
+      "question_text": "11. 解释著作权保护期限及其对学术作品的影响。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 12,
+      "question_text": "12. 论述技术保护措施（TPM）在数字学术资源中的应用。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 13,
+      "question_text": "13. 什么是版权许可合同？学术出版合同的主要条款有哪些？",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 14,
+      "question_text": "14. 简述版权转让与专有许可的区别。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 15,
+      "question_text": "15. 论述学术资源共享中的版权平衡机制。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 16,
+      "question_text": "16. 什么是合理使用中的转换性使用？",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 17,
+      "question_text": "17. 简述国际版权条约对学术研究的影响。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 18,
+      "question_text": "18. 论述人工智能生成内容的版权保护问题。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 19,
+      "question_text": "19. 什么是版权滥用？如何防止版权垄断阻碍学术发展？",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 20,
+      "question_text": "20. 解释知识共享（Creative Commons）许可体系。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 21,
+      "question_text": "21. 简述学术论文引用中的版权注意事项。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 22,
+      "question_text": "22. 论述预印本（preprint）出版的版权问题。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    },
+    {
+      "question_id": 23,
+      "question_text": "23. 什么是版权许可费？学术机构的版权费用管理。",
+      "answer": "错误: API key not set: GLM_API_KEY",
+      "evaluation": {
+        "score": 0,
+        "max_score": 10,
+        "accuracy": 0.0,
+        "comment": "测试错误"
+      }
+    }
+  ],
+  "summary": {
+    "total_score": 0,
+    "max_total_score": 230,
+    "overall_accuracy": 0.0,
+    "end_time": "2025-11-18T06:00:20.367662",
+    "duration_minutes": 0.0
+  }
+}

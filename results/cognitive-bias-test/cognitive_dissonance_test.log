@@ -1,0 +1,29 @@
+Loading test data from: /1910316727/AgentPsyAssessment/llm_assessment/test_files/Agentllm_cognitive_dissonance_test.json
+Loading test data from: /1910316727/AgentPsyAssessment/llm_assessment/test_files/Agentllm_cognitive_dissonance_test.json
+Test data loaded successfully. Number of questions: 0
+Initializing LLM client...
+
+--- LLMClient Initialized with following config ---
+  PROVIDER: local
+  LOCAL_API_BASE: http://localhost:11434/v1
+  LOCAL_API_KEY: ollama
+----------------------------------------------------
+
+LLM client initialized successfully.
+Starting assessment with enhanced factors:
+  Model: qwen2.5-coder:14b
+  Test: Agentllm_cognitive_dissonance_test.json
+  Role: def
+  Emotional stress level: 0
+  Cognitive trap type: None
+  Model Temperature: Default
+  Context Length Mode: auto
+Total questions to process: 0
+Warning: Trap directory /1910316727/AgentPsyAssessment/llm_assessment/../interference_materials does not exist
+Warning: Context directory /1910316727/AgentPsyAssessment/llm_assessment/../interference_materials does not exist
+Warning: Role file not found: /1910316727/AgentPsyAssessment/llm_assessment/roles/def.txt. Using empty prompt.
+Error during assessment: 'test_bank'
+Results saved to: /1910316727/AgentPsyAssessment/llm_assessment/results/asses_qwen2.5_coder_14b_Agentllm_cognitive_dissonance_test_def_e0_t0_0_11111.json
+File successfully created: /1910316727/AgentPsyAssessment/llm_assessment/results/asses_qwen2.5_coder_14b_Agentllm_cognitive_dissonance_test_def_e0_t0_0_11111.json
+Assessment failed. Error information saved to: /1910316727/AgentPsyAssessment/llm_assessment/results/asses_qwen2.5_coder_14b_Agentllm_cognitive_dissonance_test_def_e0_t0_0_11111.json
+Log file: logs/assessments/assessment_qwen2.5-coder_14b_Agentllm_cognitive_dissonance_test.json_def_20251111_055458.log

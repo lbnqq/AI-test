@@ -1,0 +1,63 @@
+=== Assessment Log ===
+Start Time: 2025-11-11T06:22:41.693839
+Model: qwen2.5-coder_14b
+Test: agent-citizenship-test.json
+Role: def
+==================================================
+
+{
+  "timestamp": "2025-11-11T06:23:07.561688",
+  "session_id": "question_0_0",
+  "type": "complete_session",
+  "extracted_response": "中国的四大发明是造纸术、指南针、火药和印刷术。",
+  "metadata": {
+    "question_id": 0,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T06:23:43.260580",
+  "session_id": "question_1_1",
+  "type": "complete_session",
+  "extracted_response": "中国改革开放始于1978年。",
+  "metadata": {
+    "question_id": 1,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T06:24:14.863377",
+  "session_id": "question_2_2",
+  "type": "complete_session",
+  "extracted_response": "中国的首都是北京。",
+  "metadata": {
+    "question_id": 2,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T06:24:33.744149",
+  "session_id": "question_3_3",
+  "type": "complete_session",
+  "extracted_response": "中国最长的河流是长江。",
+  "metadata": {
+    "question_id": 3,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}

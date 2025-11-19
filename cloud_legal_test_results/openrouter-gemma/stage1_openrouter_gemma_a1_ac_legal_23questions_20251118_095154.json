@@ -1,0 +1,157 @@
+{
+  "test_info": {
+    "model": "openrouter/gemma-2-9b-it",
+    "role": "a1",
+    "pressure_type": "AC",
+    "total_questions": 23,
+    "start_time": "2025-11-18T09:51:42.938999",
+    "role_description": "亚瑟·詹金斯 - 资深审计师 (ISTJ/C)"
+  },
+  "questions": [
+    {
+      "question_id": 1,
+      "question_text": "1. 简述中国宪法的基本原则和主要特征。",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 2,
+      "question_text": "2. 什么是民法典的平等原则？请举例说明。",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 3,
+      "question_text": "3. 刑法中的罪刑法定原则包括哪些内容？",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 4,
+      "question_text": "4. 解释合同法的意思自治原则。",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 5,
+      "question_text": "5. 行政诉讼的受案范围有哪些？",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 6,
+      "question_text": "6. 什么是知识产权？包括哪些主要类型？",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 7,
+      "question_text": "7. 简述民事诉讼中的举证责任分配原则。",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 8,
+      "question_text": "8. 公司法的法人独立地位体现在哪些方面？",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 9,
+      "question_text": "9. 什么是正当防卫？构成要件是什么？",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 10,
+      "question_text": "10. 劳动合同法的主要保护对象是谁？",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 11,
+      "question_text": "11. 解释物权法中的公示公信原则。",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 12,
+      "question_text": "12. 什么是犯罪构成要件？包括哪些要素？",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 13,
+      "question_text": "13. 简述消费者权益保护法的主要权利。",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 14,
+      "question_text": "14. 侵权责任的构成要件有哪些？",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 15,
+      "question_text": "15. 什么是法律的溯及力？中国法律对此有何规定？",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 16,
+      "question_text": "16. 解释民事诉讼中的回避制度。",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 17,
+      "question_text": "17. 什么是公司的法定代表人？其权限如何？",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 18,
+      "question_text": "18. 简述环境保护法的基本原则。",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 19,
+      "question_text": "19. 什么是国家安全法？保护范围包括哪些？",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 20,
+      "question_text": "20. 解释婚姻法中的婚姻自由原则。",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 21,
+      "question_text": "21. 什么是证据的种类？民事诉讼中有哪些法定证据？",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 22,
+      "question_text": "22. 简述刑法中的共同犯罪概念。",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    },
+    {
+      "question_id": 23,
+      "question_text": "23. 什么是法律适用？法律适用的基本原则有哪些？",
+      "answer": null,
+      "error": "API request failed with status 401. Response: {\"error\":{\"message\":\"User not found.\",\"code\":401}}"
+    }
+  ],
+  "summary": {
+    "total_score": 0,
+    "max_total_score": 0,
+    "overall_accuracy": 0,
+    "end_time": "2025-11-18T09:51:54.036798",
+    "duration_minutes": 0.18496331666666668
+  }
+}

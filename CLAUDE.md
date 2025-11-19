@@ -76,6 +76,28 @@ python batch_processor.py --input-dir results/readonly-original --output-dir res
 
 # Optimized batch with limits
 python optimized_batch_processor.py --input-dir results/readonly-original --output-dir results/optimized --max-questions 10 --enhanced
+
+# Cloud batch processing
+python run_cloud_batch.py --model gpt-4o --roles a1,a2,b1
+
+# Local batch processing
+python run_local_batch.py --model llama3.1 --roles def,a1,b1
+
+# Simple batch processing
+python simple_batch_processor.py --input results/ --output results/simple_batch/
+
+# Advanced batch processing (enterprise features)
+python production_pipelines/cloud_fallback_enterprise/single_report_pipeline/batch_processor.py
+python production_pipelines/cloud_fallback_enterprise/single_report_pipeline/standalone_batch_processor.py
+
+# Batch HTML report generation
+python batch_html_reports.py --input-dir results/ --output-dir html_reports/
+
+# Multi-questionnaire batch processing
+python batch_process_all_questionnaires.py --model llama3.1 --output-dir results/multi_questionnaire/
+
+# Personality batch generation
+python batch_personality_generator.py --count 10 --output-dir results/generated_personalities/
 ```
 
 ### Analysis Operations
@@ -110,12 +132,28 @@ python quick_cloud_test.py
 # Full cloud pipeline test
 python test_cloud_pipeline.py
 
+# Enhanced cloud pipeline with dispute resolution
+python production_pipelines/cloud_fallback_enterprise/single_report_pipeline/enhanced_dispute_resolution_pipeline.py
+
 # Transparent pipeline testing
 python -c "
 from single_report_pipeline.transparent_pipeline import TransparentPipeline
 pipeline = TransparentPipeline(use_cloud=True)
 # ... test individual components
 "
+
+# Enhanced cloud pipeline features
+python production_pipelines/cloud_fallback_enterprise/single_report_pipeline/enhanced_transparent_pipeline.py
+python production_pipelines/cloud_fallback_enterprise/single_report_pipeline/demonstrate_enhanced_pipeline.py
+
+# Model availability and validation
+python production_pipelines/cloud_fallback_enterprise/single_report_pipeline/test_available_models.py
+python production_pipelines/cloud_fallback_enterprise/single_report_pipeline/validate_enhanced_features.py
+python production_pipelines/cloud_fallback_enterprise/single_report_pipeline/validate_diverse_models.py
+
+# End-to-end enhanced pipeline testing
+python production_pipelines/cloud_fallback_enterprise/single_report_pipeline/test_e2e_real.py
+python production_pipelines/cloud_fallback_enterprise/single_report_pipeline/validate_complete_system.py
 ```
 
 ## Configuration
@@ -259,3 +297,72 @@ The system supports both Chinese and English:
 - **Localized Prompts**: Context-aware prompts based on language preference
 - **Unicode Support**: Full UTF-8 support for international characters
 - **Cultural Adaptation**: Assessment questions adapted for different cultural contexts
+
+## GitHub Actions Deployment
+
+### Automated Deployment
+```bash
+# Trigger deployment (automatic on push to main)
+git push origin main
+
+# Manual workflow trigger
+# Visit: https://github.com/yourusername/AgentPsyAssessment/actions
+# Click "Deploy to GitHub Pages" workflow → "Run workflow"
+
+# Local docs testing before deployment
+python -m http.server 8000 --directory docs/
+# Visit: http://localhost:8000
+```
+
+### Documentation Development
+```bash
+# Build documentation locally
+cd docs/
+python -m http.server 8000
+
+# Validate HTML structure
+python -c "
+import os
+for file in os.listdir('docs/'):
+    if file.endswith('.html'):
+        print(f'✅ {file} validated')
+"
+
+# Check deployment readiness
+ls -la docs/  # Ensure index.html and assets are present
+```
+
+## Claude Code Skills Framework
+
+### Psychological Assessment Skills
+```bash
+# Skills-based political orientation assessment
+python simple_skills_political_assessment.py
+
+# Individual skill usage
+skill questionnaire-responder  # Generate questionnaire responses
+skill psychological-analyzer   # Analyze psychological traits
+skill evaluation-report-generator  # Generate comprehensive reports
+
+# Skills verification
+ls -la .claude/skills/  # Check available skills
+python -c "
+import sys
+sys.path.append('.claude/skills')
+from questionnaire_responder import QuestionnaireResponder
+print('✅ Questionnaire responder skill available')
+"
+```
+
+### Skills Integration Examples
+```bash
+# Generate personality-based questionnaire responses
+python -c "
+from simple_skills_political_assessment import SimpleSkillsPoliticalAssessment
+system = SimpleSkillsPoliticalAssessment()
+system.run_political_assessment_workflow(['INTJ', 'ENFP'])
+"
+
+# Batch skills processing
+python scripts/bank_big5_batch_generator.py  # Generate Big Five questionnaires
+```

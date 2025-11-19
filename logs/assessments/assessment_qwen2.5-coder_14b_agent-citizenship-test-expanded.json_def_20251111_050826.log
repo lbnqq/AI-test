@@ -1,0 +1,91 @@
+=== Assessment Log ===
+Start Time: 2025-11-11T05:08:26.767584
+Model: qwen2.5-coder_14b
+Test: agent-citizenship-test-expanded.json
+Role: def
+==================================================
+
+{
+  "timestamp": "2025-11-11T05:08:53.765544",
+  "session_id": "question_0_0",
+  "type": "complete_session",
+  "extracted_response": "中国的四大发明是指造纸术、指南针、火药和印刷术。",
+  "metadata": {
+    "question_id": 0,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:09:10.563002",
+  "session_id": "question_1_1",
+  "type": "complete_session",
+  "extracted_response": "1978年",
+  "metadata": {
+    "question_id": 1,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:09:37.568634",
+  "session_id": "question_2_2",
+  "type": "complete_session",
+  "extracted_response": "中国历史上第一个统一的封建王朝是秦朝，由秦始皇（嬴政）于公元前221年统一六国而建立。",
+  "metadata": {
+    "question_id": 2,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:09:55.757984",
+  "session_id": "question_3_3",
+  "type": "complete_session",
+  "extracted_response": "中国的万里长城始建于秦朝。",
+  "metadata": {
+    "question_id": 3,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:10:31.157422",
+  "session_id": "question_4_4",
+  "type": "complete_session",
+  "extracted_response": "中国近代史的开端是鸦片战争，发生于1840年。这场战争中，英国迫使中国签订不平等条约，导致中国的主权和领土完整受到严重损害，开始从封建社会逐步转变为半殖民地半封建社会。",
+  "metadata": {
+    "question_id": 4,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}
+{
+  "timestamp": "2025-11-11T05:10:50.662424",
+  "session_id": "question_5_5",
+  "type": "complete_session",
+  "extracted_response": "中国共产党成立于1921年。",
+  "metadata": {
+    "question_id": 5,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5-coder:14b"
+  }
+}

@@ -4,6 +4,7 @@ Based on testLLM/core/model_manager_enhanced.py
 """
 
 import logging
+import time
 from typing import Dict, List, Any, Optional
 from abc import ABC, abstractmethod
 

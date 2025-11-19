@@ -1,0 +1,9 @@
+{
+  "test_metadata": {
+    "model": "qwen2.5-coder:14b",
+    "timestamp": "2025-11-11T06:33:08.637235",
+    "question_id": "AGENT_B5_E1",
+    "elapsed_time": 91.61923336982727
+  },
+  "response": null
+}

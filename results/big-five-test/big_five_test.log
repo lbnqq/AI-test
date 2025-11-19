@@ -1,0 +1,11 @@
+Loading test data from: /1910316727/AgentPsyAssessment/llm_assessment/test_files/agent-big-five-50-complete2.json
+Loading test data from: /1910316727/AgentPsyAssessment/llm_assessment/test_files/agent-big-five-50-complete2.json
+Test data loaded successfully. Number of questions: 50
+Initializing LLM client...
+
+--- LLMClient Initialized with following config ---
+  PROVIDER: local
+  LOCAL_API_BASE: http://localhost:11434/v1
+  LOCAL_API_KEY: ollama
+----------------------------------------------------
+

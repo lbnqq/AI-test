@@ -1,0 +1,44 @@
+Starting Complete Big Five Test (50 questions) with extended timeout...
+Loading test data from: test_files/agent-big-five-50-complete2.json
+Test data loaded successfully. Number of questions: 50
+Initializing LLM client...
+
+--- LLMClient Initialized with following config ---
+  PROVIDER: local
+  LOCAL_API_BASE: http://localhost:11434/v1
+  LOCAL_API_KEY: ollama
+----------------------------------------------------
+
+LLM client initialized successfully.
+
+============================================================
+Processing question 1/50
+Question ID: AGENT_B5_E1
+Dimension: Extraversion
+============================================================
+Generating response (timeout: 900 seconds)...
+Response received in 302.22s
+Response length: 514 characters
+Response preview: 如果我作为团队的一份子，想在这样的线上团建活动中活跃气氛，我会尝试以下方法：
+
+首先，我会观察一下团队成员的情绪和参与度，选择一个合适的时间点进行我的提议。比如，在大家刚刚加入活动时，或者在某位成员表...
+
+============================================================
+Processing question 2/50
+Question ID: AGENT_B5_E2
+Dimension: Extraversion
+============================================================
+Generating response (timeout: 900 seconds)...
+
+Received shutdown signal. Saving current progress...
+Response received in 392.18s
+Response length: 359 characters
+Response preview: 首先，我对即将面临的这种跨背景团队合作充满期待，因为每一次新的合作都有机会带来新鲜的观点和创新的解决方案。面对来自不同背景的团队成员，我认为这是非常宝贵的学习机会，能够拓宽我的视野并丰富我的团队协作技...
+Shutdown requested, saving current progress...
+
+============================================================
+Test completed! Final results saved to: results/big_five_test_complete_20251111_071058.json
+Processed 2 out of 50 questions
+Successful responses: 2/50
+Failed responses: 0/50
+============================================================

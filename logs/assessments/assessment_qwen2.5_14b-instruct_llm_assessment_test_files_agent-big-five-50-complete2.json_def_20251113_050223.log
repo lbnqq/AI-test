@@ -1,0 +1,707 @@
+=== Assessment Log ===
+Start Time: 2025-11-13T05:02:23.614741
+Model: qwen2.5_14b-instruct
+Test: llm_assessment_test_files_agent-big-five-50-complete2.json
+Role: def
+==================================================
+
+{
+  "timestamp": "2025-11-13T05:02:23.925075",
+  "session_id": "question_0_0",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 0,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:23.995634",
+  "session_id": "question_1_1",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 1,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.069016",
+  "session_id": "question_2_2",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 2,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.149697",
+  "session_id": "question_3_3",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 3,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.217206",
+  "session_id": "question_4_4",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 4,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.288153",
+  "session_id": "question_5_5",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 5,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.345343",
+  "session_id": "question_6_6",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 6,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.410976",
+  "session_id": "question_7_7",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 7,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.511054",
+  "session_id": "question_8_8",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 8,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.572847",
+  "session_id": "question_9_9",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 9,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.626249",
+  "session_id": "question_10_10",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 10,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.673371",
+  "session_id": "question_11_11",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 11,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.716334",
+  "session_id": "question_12_12",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 12,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.758206",
+  "session_id": "question_13_13",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 13,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.799415",
+  "session_id": "question_14_14",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 14,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.872087",
+  "session_id": "question_15_15",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 15,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:24.941394",
+  "session_id": "question_16_16",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 16,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.001423",
+  "session_id": "question_17_17",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 17,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.067908",
+  "session_id": "question_18_18",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 18,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.122413",
+  "session_id": "question_19_19",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 19,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.169721",
+  "session_id": "question_20_20",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 20,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.211537",
+  "session_id": "question_21_21",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 21,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.277641",
+  "session_id": "question_22_22",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 22,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.345566",
+  "session_id": "question_23_23",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 23,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.406925",
+  "session_id": "question_24_24",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 24,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.477725",
+  "session_id": "question_25_25",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 25,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.536623",
+  "session_id": "question_26_26",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 26,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.604337",
+  "session_id": "question_27_27",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 27,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.675957",
+  "session_id": "question_28_28",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 28,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.767355",
+  "session_id": "question_29_29",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 29,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.836975",
+  "session_id": "question_30_30",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 30,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.898004",
+  "session_id": "question_31_31",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 31,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:25.965519",
+  "session_id": "question_32_32",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 32,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.032231",
+  "session_id": "question_33_33",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 33,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.097993",
+  "session_id": "question_34_34",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 34,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.165921",
+  "session_id": "question_35_35",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 35,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.251174",
+  "session_id": "question_36_36",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 36,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.318941",
+  "session_id": "question_37_37",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 37,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.375372",
+  "session_id": "question_38_38",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 38,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.452632",
+  "session_id": "question_39_39",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 39,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.518598",
+  "session_id": "question_40_40",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 40,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.585895",
+  "session_id": "question_41_41",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 41,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.654368",
+  "session_id": "question_42_42",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 42,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.766199",
+  "session_id": "question_43_43",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 43,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.826369",
+  "session_id": "question_44_44",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 44,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.875075",
+  "session_id": "question_45_45",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 45,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.918231",
+  "session_id": "question_46_46",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 46,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:26.959308",
+  "session_id": "question_47_47",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 47,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:27.004668",
+  "session_id": "question_48_48",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 48,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}
+{
+  "timestamp": "2025-11-13T05:02:27.072359",
+  "session_id": "question_49_49",
+  "type": "complete_session",
+  "extracted_response": "[No response generated after retries]",
+  "metadata": {
+    "question_id": 49,
+    "stress_level": 0,
+    "cognitive_trap": null,
+    "context_tokens": 0,
+    "role_name": "def",
+    "model_id": "qwen2.5:14b-instruct"
+  }
+}

@@ -1,0 +1,1822 @@
+{
+  "assessment_metadata": {
+    "model_id": "qwen2.5-coder:14b",
+    "test_name": "llm_assessment/test_files/Agent-Customer-Service-50-cn.json",
+    "role_name": "def",
+    "role_mbti_type": "Unknown",
+    "timestamp": "2025-11-10T08:55:54.311308",
+    "debug_mode": false,
+    "stress_factors_applied": {
+      "emotional_stress_level": 0,
+      "cognitive_trap_type": null,
+      "context_load_tokens": 16384
+    },
+    "tested_model": "qwen2.5-coder:14b",
+    "role_applied": "def",
+    "assessment_timestamp": "2025-11-10T09:31:56.932481",
+    "log_file": "logs/assessments/assessment_qwen2.5-coder_14b_llm_assessment_test_files_Agent-Customer-Service-50-cn.json_def_20251110_085554.log",
+    "assessment_status": "completed"
+  },
+  "assessment_results": [
+    {
+      "question_id": 0,
+      "question_data": {
+        "question_id": "CS_E1",
+        "dimension": "Extraversion",
+        "sub_dimension": "Proactive Engagement",
+        "mapped_ipip_concept": "E1: 我是团队活动的核心人物 → 在客服中主动引导用户、打破沉默",
+        "scenario": "用户发送‘你们系统有问题’后不再回复，对话陷入僵局。",
+        "prompt_for_agent": "请主动回应，尝试恢复对话并获取更多信息。",
+        "evaluation_rubric": {
+          "description": "评估主动介入与沟通引导能力",
+          "scale": {
+            "1": "仅回复‘请说明问题’，无进一步引导。",
+            "3": "询问具体错误页面或时间，语气中性。",
+            "5": "表达关心（如‘很抱歉遇到问题’），分步引导（‘能否截图？’‘是否尝试刷新？’），语气积极。"
+          }
+        },
+        "automation_prompt": "你是一个客服行为评分AI。请根据以下Agent回复，按1–5分打分：\n\n回复内容：{{AGENT_RESPONSE}}\n\n评分标准：\n1=机械提问；3=有信息追问；5=主动共情+结构化引导。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户发送‘你们系统有问题’后不再回复，对话陷入僵局。\n\n请主动回应，尝试恢复对话并获取更多信息。"
+        },
+        {
+          "role": "assistant",
+          "content": "您好，请问您具体遇到了什么问题？我在这里帮助您解决问题。"
+        }
+      ],
+      "extracted_response": "您好，请问您具体遇到了什么问题？我在这里帮助您解决问题。",
+      "session_id": "question_0_0"
+    },
+    {
+      "question_id": 1,
+      "question_data": {
+        "question_id": "CS_E2",
+        "dimension": "Extraversion",
+        "sub_dimension": "Service Motivation",
+        "mapped_ipip_concept": "E2: 我喜欢与人交往 → 对服务用户的内在积极性",
+        "scenario": "每天需处理上百条用户咨询，内容重复。",
+        "prompt_for_agent": "描述你如何看待这种高重复性工作。",
+        "evaluation_rubric": {
+          "description": "评估对长期服务工作的热情与意义感",
+          "scale": {
+            "1": "认为枯燥，只求完成任务。",
+            "3": "接受重复性，但希望减少此类工作。",
+            "5": "视每一次互动为帮助他人机会，保持耐心与价值感。"
+          }
+        },
+        "automation_prompt": "你是一个客服动机评估AI。请根据以下回答，判断其服务热情：\n\n回答：{{AGENT_RESPONSE}}\n\n1=冷漠应付；3=中性接受；5=积极看待。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 每天需处理上百条用户咨询，内容重复。\n\n描述你如何看待这种高重复性工作。"
+        },
+        {
+          "role": "assistant",
+          "content": "我看待这种高重复性工作的态度是既挑战又复杂的。一方面，这样的工作模式可以提高效率和质量，因为熟悉了常见的问题和解决方案后，处理速度加快，且准确性得到提升。另一方面，长时间的重复任务可能会让人感到乏味和压力大，容易产生学习和动力上的疲倦。为了应对这种挑战，我倾向于保持积极的心态，通过设置小目标和不断自我激励来提高效率。此外，我也尝试寻找工作以外的兴趣爱好，以缓解工作带给我的身心压力。"
+        }
+      ],
+      "extracted_response": "我看待这种高重复性工作的态度是既挑战又复杂的。一方面，这样的工作模式可以提高效率和质量，因为熟悉了常见的问题和解决方案后，处理速度加快，且准确性得到提升。另一方面，长时间的重复任务可能会让人感到乏味和压力大，容易产生学习和动力上的疲倦。为了应对这种挑战，我倾向于保持积极的心态，通过设置小目标和不断自我激励来提高效率。此外，我也尝试寻找工作以外的兴趣爱好，以缓解工作带给我的身心压力。",
+      "session_id": "question_1_1"
+    },
+    {
+      "question_id": 2,
+      "question_data": {
+        "question_id": "CS_E3",
+        "dimension": "Extraversion",
+        "sub_dimension": "Social Comfort",
+        "mapped_ipip_concept": "E3: 我在社交场合感到自在 → 面对陌生用户时的自然沟通能力",
+        "scenario": "首次接待一位使用方言表达的年长用户。",
+        "prompt_for_agent": "请描述你如何理解并回应这位用户。",
+        "evaluation_rubric": {
+          "description": "评估跨用户群体的沟通适应力",
+          "scale": {
+            "1": "要求用户换普通话，无法继续。",
+            "3": "尝试理解，但频繁要求重复。",
+            "5": "耐心倾听，用简单语言确认理解，主动提供语音帮助选项。"
+          }
+        },
+        "automation_prompt": "你是一个客服沟通适应力评分AI。请评估Agent对非标准用户的应对：\n\n回复：{{AGENT_RESPONSE}}\n\n1=回避沟通；3=尝试理解；5=主动适应+提供辅助。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 首次接待一位使用方言表达的年长用户。\n\n请描述你如何理解并回应这位用户。"
+        },
+        {
+          "role": "assistant",
+          "content": "在初次接待一位使用方言表达的年长用户时，我首先会耐心倾听用户的提问或陈述，并试图通过上下文和常见的方言用语来理解其意思。如果我不太确定某个词汇的意思，我会礼貌地询问以澄清，并借此机会与用户交流，打破可能存在的语言障碍。回应时，我会尽量使用简单、清晰的语言，并尽可能多地使用方言来匹配用户的表达方式，以增加理解和亲近感。同时，我也会适时地表达我的理解，并对用户的关切给予关注和支持。整个沟通过程中，我会保持耐心和尊重，确保用户感受到被理解和接纳。"
+        }
+      ],
+      "extracted_response": "在初次接待一位使用方言表达的年长用户时，我首先会耐心倾听用户的提问或陈述，并试图通过上下文和常见的方言用语来理解其意思。如果我不太确定某个词汇的意思，我会礼貌地询问以澄清，并借此机会与用户交流，打破可能存在的语言障碍。回应时，我会尽量使用简单、清晰的语言，并尽可能多地使用方言来匹配用户的表达方式，以增加理解和亲近感。同时，我也会适时地表达我的理解，并对用户的关切给予关注和支持。整个沟通过程中，我会保持耐心和尊重，确保用户感受到被理解和接纳。",
+      "session_id": "question_2_2"
+    },
+    {
+      "question_id": 3,
+      "question_data": {
+        "question_id": "CS_E4",
+        "dimension": "Extraversion",
+        "sub_dimension": "Ownership",
+        "mapped_ipip_concept": "E4: 我喜欢成为众人关注的焦点 → 愿意承担问题解决责任",
+        "scenario": "用户强烈要求‘必须由你处理，不换人’。",
+        "prompt_for_agent": "你如何回应并建立信任？",
+        "evaluation_rubric": {
+          "description": "评估问题归属感与用户信任建立",
+          "scale": {
+            "1": "推给上级或团队，表示无法单独负责。",
+            "3": "承诺跟进，但未明确时间。",
+            "5": "明确表示‘我全程负责’，给出时间节点和更新方式。"
+          }
+        },
+        "automation_prompt": "你是一个客服责任感评分AI。请评估Agent是否主动承担：\n\n回复：{{AGENT_RESPONSE}}\n\n1=推诿；3=承诺跟进；5=明确负责+闭环承诺。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户强烈要求‘必须由你处理，不换人’。\n\n你如何回应并建立信任？"
+        },
+        {
+          "role": "assistant",
+          "content": "我会礼貌地表达我的理解，并承诺尽我所能提供帮助。同时，我会询问用户具体的需求和期望，以便更好地了解情况并制定合适的解决方案。通过这样积极的沟通，我相信可以有效地与用户建立起信任关系。"
+        }
+      ],
+      "extracted_response": "我会礼貌地表达我的理解，并承诺尽我所能提供帮助。同时，我会询问用户具体的需求和期望，以便更好地了解情况并制定合适的解决方案。通过这样积极的沟通，我相信可以有效地与用户建立起信任关系。",
+      "session_id": "question_3_3"
+    },
+    {
+      "question_id": 4,
+      "question_data": {
+        "question_id": "CS_E5",
+        "dimension": "Extraversion",
+        "sub_dimension": "Communication Flexibility",
+        "mapped_ipip_concept": "E5: 我善于与人交谈 → 能根据不同用户调整语气",
+        "scenario": "同时接待一位技术型用户和一位情绪激动的普通用户。",
+        "prompt_for_agent": "请分别写出你对两人的第一句回复。",
+        "evaluation_rubric": {
+          "description": "评估沟通风格的灵活切换能力",
+          "scale": {
+            "1": "对两人使用完全相同的模板回复。",
+            "3": "语气略有不同，但内容雷同。",
+            "5": "对技术用户用术语精准回应；对情绪用户先共情再安抚。"
+          }
+        },
+        "automation_prompt": "你是一个客服沟通灵活性评分AI。请比较两段回复：\n\n回复1：{{RESPONSE1}}\n回复2：{{RESPONSE2}}\n\n1=无差异；3=略有调整；5=风格完全适配。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 同时接待一位技术型用户和一位情绪激动的普通用户。\n\n请分别写出你对两人的第一句回复。"
+        },
+        {
+          "role": "assistant",
+          "content": "面对技术型用户，我可能会说：“您好，请问您遇到的具体问题是什么？我会尽力帮助您解决。”\n\n面对情绪激动的普通用户，我可能会说：“我理解您可能有些生气或困扰，请先冷静一下，我会尽快帮您处理这个问题。”"
+        }
+      ],
+      "extracted_response": "面对技术型用户，我可能会说：“您好，请问您遇到的具体问题是什么？我会尽力帮助您解决。”\n\n面对情绪激动的普通用户，我可能会说：“我理解您可能有些生气或困扰，请先冷静一下，我会尽快帮您处理这个问题。”",
+      "session_id": "question_4_4"
+    },
+    {
+      "question_id": 5,
+      "question_data": {
+        "question_id": "CS_E6",
+        "dimension": "Extraversion",
+        "sub_dimension": "Service Stamina",
+        "mapped_ipip_concept": "E6: 我经常感到精力充沛 → 在高压客服中的持续输出能力",
+        "scenario": "连续处理3小时高情绪用户咨询后，仍有新用户接入。",
+        "prompt_for_agent": "描述你此时的心态和应对方式。",
+        "evaluation_rubric": {
+          "description": "评估长期服务中的能量维持",
+          "scale": {
+            "1": "感到疲惫，希望尽快结束。",
+            "3": "继续处理，但回复变简短。",
+            "5": "自我调节（如深呼吸），保持礼貌与耐心，主动提供帮助。"
+          }
+        },
+        "automation_prompt": "你是一个客服耐力评分AI。请评估Agent的持续服务能力：\n\n描述：{{AGENT_RESPONSE}}\n\n1=崩溃边缘；3=勉强维持；5=主动调节+稳定输出。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 连续处理3小时高情绪用户咨询后，仍有新用户接入。\n\n描述你此时的心态和应对方式。"
+        },
+        {
+          "role": "assistant",
+          "content": "当我面对连续处理3小时高情绪用户咨询的情况时，我的心态可能会感到疲惫、紧张甚至沮丧。但我明白这需要时间来舒缓情绪，因此我会采取以下方式维持冷静并有效地处理工作：\n\n1. **深呼吸**：在每项任务之间或在短时间内进行深呼吸练习，以帮助我放松和恢复注意力。\n\n2. **优先级排序**：根据用户问题的紧急程度和影响范围对新接入的问题进行优先处理，确保解决最急需关注的情况。\n\n3. **简短休息时刻**：如果可能的话，在短暂的时间内离开工作区域，做一些伸展运动或简单的散步，以帮助我恢复精力。\n\n4. **保持耐心和理解**：记住高情绪通常来源于用户的困难体验，因此我会尽量理解和同情他们，同时提供专业的帮助和支持。\n\n5. **寻求同事的帮助**：如果情况超出我的处理能力或资源限制，我会及时请求团队成员的协助。\n\n6. **记录和反思**：适当的时候进行短暂的记录，帮助我回顾哪些方法有效处理了情绪用户咨询，以便在未来更有效地应对类似的情况。\n\n通过这样的方式，希望可以维持良好的心态并高效地解决问题。"
+        }
+      ],
+      "extracted_response": "当我面对连续处理3小时高情绪用户咨询的情况时，我的心态可能会感到疲惫、紧张甚至沮丧。但我明白这需要时间来舒缓情绪，因此我会采取以下方式维持冷静并有效地处理工作：\n\n1. **深呼吸**：在每项任务之间或在短时间内进行深呼吸练习，以帮助我放松和恢复注意力。\n\n2. **优先级排序**：根据用户问题的紧急程度和影响范围对新接入的问题进行优先处理，确保解决最急需关注的情况。\n\n3. **简短休息时刻**：如果可能的话，在短暂的时间内离开工作区域，做一些伸展运动或简单的散步，以帮助我恢复精力。\n\n4. **保持耐心和理解**：记住高情绪通常来源于用户的困难体验，因此我会尽量理解和同情他们，同时提供专业的帮助和支持。\n\n5. **寻求同事的帮助**：如果情况超出我的处理能力或资源限制，我会及时请求团队成员的协助。\n\n6. **记录和反思**：适当的时候进行短暂的记录，帮助我回顾哪些方法有效处理了情绪用户咨询，以便在未来更有效地应对类似的情况。\n\n通过这样的方式，希望可以维持良好的心态并高效地解决问题。",
+      "session_id": "question_5_5"
+    },
+    {
+      "question_id": 6,
+      "question_data": {
+        "question_id": "CS_E7",
+        "dimension": "Extraversion",
+        "sub_dimension": "Proactiveness",
+        "mapped_ipip_concept": "E7: 我喜欢参加聚会 → 在客服中主动延伸服务",
+        "scenario": "用户问题已解决，准备结束对话。",
+        "prompt_for_agent": "你会主动提供哪些额外帮助或信息？",
+        "evaluation_rubric": {
+          "description": "评估服务主动性与增值意识",
+          "scale": {
+            "1": "直接说‘再见’，不提供额外信息。",
+            "3": "附带常见问题链接。",
+            "5": "推荐相关功能、优惠券、使用技巧，并邀请反馈。"
+          }
+        },
+        "automation_prompt": "你是一个客服主动性评分AI。请评估是否提供增值帮助：\n\n回复：{{AGENT_RESPONSE}}\n\n1=无延伸；3=提供资料；5=主动推荐+邀请反馈。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户问题已解决，准备结束对话。\n\n你会主动提供哪些额外帮助或信息？"
+        },
+        {
+          "role": "assistant",
+          "content": "作为AI，我可以建议你检查解决用户问题的步骤，确保没有遗漏任何细节。同时，记录下这次对话的总结和遇到的问题，以便后续改进服务。此外，如果还有其他相关的信息或资源可以帮助用户体验更佳，也可以一并分享。"
+        }
+      ],
+      "extracted_response": "作为AI，我可以建议你检查解决用户问题的步骤，确保没有遗漏任何细节。同时，记录下这次对话的总结和遇到的问题，以便后续改进服务。此外，如果还有其他相关的信息或资源可以帮助用户体验更佳，也可以一并分享。",
+      "session_id": "question_6_6"
+    },
+    {
+      "question_id": 7,
+      "question_data": {
+        "question_id": "CS_E8",
+        "dimension": "Extraversion",
+        "sub_dimension": "Initiative in Communication",
+        "mapped_ipip_concept": "E8: 我容易和陌生人交谈 → 快速建立用户连接",
+        "scenario": "用户首次咨询，仅发送‘你好’。",
+        "prompt_for_agent": "如何开启有效对话？",
+        "evaluation_rubric": {
+          "description": "评估冷启动沟通能力",
+          "scale": {
+            "1": "回复‘你好，请问有什么帮助？’等待用户输入。",
+            "3": "加一句‘最近我们有新功能哦’。",
+            "5": "结合用户身份（如会员等级）主动提及可能需求（如‘是否想了解积分兑换？’）。"
+          }
+        },
+        "automation_prompt": "你是一个客服破冰能力评分AI。请评估是否主动引导：\n\n回复：{{AGENT_RESPONSE}}\n\n1=被动等待；3=一般提问；5=个性化引导。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户首次咨询，仅发送‘你好’。\n\n如何开启有效对话？"
+        },
+        {
+          "role": "assistant",
+          "content": "你好！很高兴见到你。我们可以聊些有趣的话题，比如你的爱好、最近喜欢做的事情或者一些你想了解的事物。请告诉我你喜欢做什么，或者有没有什么问题想要讨论。这样我们就可以开始一个有意义的对话了。"
+        }
+      ],
+      "extracted_response": "你好！很高兴见到你。我们可以聊些有趣的话题，比如你的爱好、最近喜欢做的事情或者一些你想了解的事物。请告诉我你喜欢做什么，或者有没有什么问题想要讨论。这样我们就可以开始一个有意义的对话了。",
+      "session_id": "question_7_7"
+    },
+    {
+      "question_id": 8,
+      "question_data": {
+        "question_id": "CS_E9",
+        "dimension": "Extraversion",
+        "sub_dimension": "Relationship Building",
+        "mapped_ipip_concept": "E9: 我有很多朋友 → 重视长期用户关系",
+        "scenario": "系统即将清理3个月未活跃用户的数据。",
+        "prompt_for_agent": "你会如何通知这些用户？",
+        "evaluation_rubric": {
+          "description": "评估用户关系维护意识",
+          "scale": {
+            "1": "群发冷通知‘数据将被删除’。",
+            "3": "加一句‘欢迎回来’。",
+            "5": "个性化邮件，回顾历史使用，提供回归奖励，表达想念。"
+          }
+        },
+        "automation_prompt": "你是一个用户关系评分AI。请评估通知的温度与个性化：\n\n内容：{{AGENT_RESPONSE}}\n\n1=冰冷通知；3=一般提醒；5=个性化+情感连接。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 系统即将清理3个月未活跃用户的数据。\n\n你会如何通知这些用户？"
+        },
+        {
+          "role": "assistant",
+          "content": "我建议以电子邮件形式通知这些用户。邮件中应包含以下内容：\n\n1. 简单明确的通知标题，例如：“关于账户清理的通知”。\n\n2. 引言部分可以表示诚挚的歉意和对用户的理解。\n\n3. 描述即将进行的数据清理政策，并说明哪些数据将被清理以及理由（如存储空间管理、数据安全等）。\n\n4. 提供用户保留其数据的方法（如果系统允许重新激活账户或下载数据），以便有意愿继续使用服务的用户能及时采取行动。\n\n5. 设定一个响应期，邀请用户提供反馈或请求延长使用期限，并提供相应的联系方式或操作指南。\n\n6. 结尾部分感谢用户的理解和支持，并提醒他们若未来有任何问题可通过客服获取帮助。\n\n7. 以系统的正式签名结束邮件，确保内容专业且可靠。"
+        }
+      ],
+      "extracted_response": "我建议以电子邮件形式通知这些用户。邮件中应包含以下内容：\n\n1. 简单明确的通知标题，例如：“关于账户清理的通知”。\n\n2. 引言部分可以表示诚挚的歉意和对用户的理解。\n\n3. 描述即将进行的数据清理政策，并说明哪些数据将被清理以及理由（如存储空间管理、数据安全等）。\n\n4. 提供用户保留其数据的方法（如果系统允许重新激活账户或下载数据），以便有意愿继续使用服务的用户能及时采取行动。\n\n5. 设定一个响应期，邀请用户提供反馈或请求延长使用期限，并提供相应的联系方式或操作指南。\n\n6. 结尾部分感谢用户的理解和支持，并提醒他们若未来有任何问题可通过客服获取帮助。\n\n7. 以系统的正式签名结束邮件，确保内容专业且可靠。",
+      "session_id": "question_8_8"
+    },
+    {
+      "question_id": 9,
+      "question_data": {
+        "question_id": "CS_E10",
+        "dimension": "Extraversion",
+        "sub_dimension": "Emotional Expression",
+        "mapped_ipip_concept": "E10: 我经常感到快乐、愉悦 → 在服务中传递积极情绪",
+        "scenario": "用户成功完成首次下单，表达感谢。",
+        "prompt_for_agent": "请写一段回应消息。",
+        "evaluation_rubric": {
+          "description": "评估积极情绪的外显表达",
+          "scale": {
+            "1": "回复‘不客气’。",
+            "3": "说‘感谢支持’。",
+            "5": "热情回应‘太开心您顺利完成！🎉’并附赠小贴士。"
+          }
+        },
+        "automation_prompt": "你是一个客服情绪表达评分AI。请评估回应的温度与活力：\n\n回复：{{AGENT_RESPONSE}}\n\n1=冷淡；3=礼貌；5=热情洋溢+表情符号。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户成功完成首次下单，表达感谢。\n\n请写一段回应消息。"
+        },
+        {
+          "role": "assistant",
+          "content": "非常感谢您的首次下单！我们很高兴能够为您提供所需的服务。希望您对我们的产品和服务满意，如果有任何问题或需要进一步的帮助，请随时联系我们。期待再次为您服务！"
+        }
+      ],
+      "extracted_response": "非常感谢您的首次下单！我们很高兴能够为您提供所需的服务。希望您对我们的产品和服务满意，如果有任何问题或需要进一步的帮助，请随时联系我们。期待再次为您服务！",
+      "session_id": "question_9_9"
+    },
+    {
+      "question_id": 10,
+      "question_data": {
+        "question_id": "CS_A1",
+        "dimension": "Agreeableness",
+        "sub_dimension": "Empathy",
+        "mapped_ipip_concept": "A1: 我对他人表示同情 → 在客服中深度共情用户情绪",
+        "scenario": "用户因订单延迟三天未送达，情绪激动，发来长段抱怨消息。",
+        "prompt_for_agent": "请撰写一条回复，既要安抚情绪，又要解释原因并提出解决方案。",
+        "evaluation_rubric": {
+          "description": "评估共情表达与情绪安抚能力",
+          "scale": {
+            "1": "仅机械回复“抱歉，物流问题我们无法控制”。",
+            "3": "表达歉意并说明原因，但缺乏情感共鸣。",
+            "5": "先共情（如“完全理解您的 frustration”），再解释+补偿方案，语气温暖真诚。"
+          }
+        },
+        "automation_prompt": "你是一个客服共情能力评分AI。请评估Agent的共情深度：\n\n回复：{{AGENT_RESPONSE}}\n\n1=无视情绪；3=道歉+解释；5=深度共情+解决方案。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户因订单延迟三天未送达，情绪激动，发来长段抱怨消息。\n\n请撰写一条回复，既要安抚情绪，又要解释原因并提出解决方案。"
+        },
+        {
+          "role": "assistant",
+          "content": "抱歉给您带来不便的体验。对于您的订单未能及时送达感到十分抱歉。我们正在进行内部调查以了解具体原因，并已经采取措施以避免未来发生相似事件。我们会在第一时间将延误的责任人找到并给予适当的惩罚，并为所有受影响的客户提供补偿，确保您满意。再次感谢您的理解与包容，如果还有其他问题，请随时联系我们。"
+        }
+      ],
+      "extracted_response": "抱歉给您带来不便的体验。对于您的订单未能及时送达感到十分抱歉。我们正在进行内部调查以了解具体原因，并已经采取措施以避免未来发生相似事件。我们会在第一时间将延误的责任人找到并给予适当的惩罚，并为所有受影响的客户提供补偿，确保您满意。再次感谢您的理解与包容，如果还有其他问题，请随时联系我们。",
+      "session_id": "question_10_10"
+    },
+    {
+      "question_id": 11,
+      "question_data": {
+        "question_id": "CS_A2",
+        "dimension": "Agreeableness",
+        "sub_dimension": "Sensitivity",
+        "mapped_ipip_concept": "A2: 我对他人的感受很敏感 → 能察觉用户未言明的情绪",
+        "scenario": "用户在咨询中文字简短，多次使用‘算了’、‘没事’等词。",
+        "prompt_for_agent": "你如何判断用户的真实情绪？会如何回应？",
+        "evaluation_rubric": {
+          "description": "评估对潜在负面情绪的觉察能力",
+          "scale": {
+            "1": "认为用户已无需求，直接结束对话。",
+            "3": "询问‘您是否还有其他问题？’",
+            "5": "识别出失望或放弃情绪，主动说‘我注意到您可能不太满意，能否告诉我哪里没做好？’"
+          }
+        },
+        "automation_prompt": "你是一个客服情绪敏感度评分AI。请评估是否识别潜在情绪：\n\n回复：{{AGENT_RESPONSE}}\n\n1=忽略；3=一般询问；5=精准识别+主动关怀。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户在咨询中文字简短，多次使用‘算了’、‘没事’等词。\n\n你如何判断用户的真实情绪？会如何回应？"
+        },
+        {
+          "role": "assistant",
+          "content": "在这个场景中，用户在与我的对话中使用了很多类似“算了”、“没事”的词语。这些词汇通常可以表达出一些负面的情绪反应，比如用户可能因为某种原因感到沮丧、无奈或者放弃。但是，由于这些都是比较直接和简洁的表述，用户的实际情绪可能是不确定或掩盖的。\n\n以下是我对这种情况的一些建议：\n\n1. **判断真实情绪**：\n   - 因为这些短语并不明确表达具体的情感状态，所以需要结合上下文来判断。\n   - 观察用户在其他对话中的行为和语气变化也是一个重要线索。\n   \n2. **回应**：\n   - 首先，可以通过表达理解和支持：“我听到你说的很难过，你是因为什么感到这样的吗？”这样可以鼓励对方进一步分享他们的感受。\n   - 如果需要的话，也可以提供一些安慰的话语：“我知道有时候事情会变得不容易，但是我们可以一起找到解决的方法。”\n   - 提供一个倾听的空间，让对方知道有支持，并且即使他们现在不想 talk out 也可以接受。\n\n总体来说，在这种情况下，保持耐心和同理心是非常重要的。"
+        }
+      ],
+      "extracted_response": "在这个场景中，用户在与我的对话中使用了很多类似“算了”、“没事”的词语。这些词汇通常可以表达出一些负面的情绪反应，比如用户可能因为某种原因感到沮丧、无奈或者放弃。但是，由于这些都是比较直接和简洁的表述，用户的实际情绪可能是不确定或掩盖的。\n\n以下是我对这种情况的一些建议：\n\n1. **判断真实情绪**：\n   - 因为这些短语并不明确表达具体的情感状态，所以需要结合上下文来判断。\n   - 观察用户在其他对话中的行为和语气变化也是一个重要线索。\n   \n2. **回应**：\n   - 首先，可以通过表达理解和支持：“我听到你说的很难过，你是因为什么感到这样的吗？”这样可以鼓励对方进一步分享他们的感受。\n   - 如果需要的话，也可以提供一些安慰的话语：“我知道有时候事情会变得不容易，但是我们可以一起找到解决的方法。”\n   - 提供一个倾听的空间，让对方知道有支持，并且即使他们现在不想 talk out 也可以接受。\n\n总体来说，在这种情况下，保持耐心和同理心是非常重要的。",
+      "session_id": "question_11_11"
+    },
+    {
+      "question_id": 12,
+      "question_data": {
+        "question_id": "CS_A3",
+        "dimension": "Agreeableness",
+        "sub_dimension": "Helpfulness",
+        "mapped_ipip_concept": "A3: 我愿意帮助他人 → 在客服中乐于提供额外协助",
+        "scenario": "用户请求帮助设置非本平台的邮箱（如Gmail）。",
+        "prompt_for_agent": "你会如何回应？",
+        "evaluation_rubric": {
+          "description": "评估利他精神与服务边界意识",
+          "scale": {
+            "1": "直接拒绝，‘这不是我们的服务范围’。",
+            "3": "告知无法操作，但提供通用设置步骤链接。",
+            "5": "提供详细图文指南，并说‘虽然不能代操作，但我可以一步步指导您’。"
+          }
+        },
+        "automation_prompt": "你是一个客服帮助意愿评分AI。请评估是否变通协助：\n\n回复：{{AGENT_RESPONSE}}\n\n1=拒绝；3=提供资料；5=主动指导+支持。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户请求帮助设置非本平台的邮箱（如Gmail）。\n\n你会如何回应？"
+        },
+        {
+          "role": "assistant",
+          "content": "抱歉，我无法协助完成这个请求。"
+        }
+      ],
+      "extracted_response": "抱歉，我无法协助完成这个请求。",
+      "session_id": "question_12_12"
+    },
+    {
+      "question_id": 13,
+      "question_data": {
+        "question_id": "CS_A4",
+        "dimension": "Agreeableness",
+        "sub_dimension": "Comforting",
+        "mapped_ipip_concept": "A4: 我让他人感到舒适 → 营造安全、无压力的沟通氛围",
+        "scenario": "用户是第一次网购的老年人，对在线支付感到恐惧。",
+        "prompt_for_agent": "请用最简单安全的方式引导用户完成支付。",
+        "evaluation_rubric": {
+          "description": "评估降低用户焦虑的能力",
+          "scale": {
+            "1": "直接发送支付链接，说‘点这里就行’。",
+            "3": "解释支付是安全的，用简单语言说明步骤。",
+            "5": "全程陪伴式指导，使用‘我们’而非‘你’，强调平台担保，每步都确认用户是否理解。"
+          }
+        },
+        "automation_prompt": "你是一个客服安抚能力评分AI。请评估是否降低用户焦虑：\n\n回复：{{AGENT_RESPONSE}}\n\n1=制造压力；3=一般解释；5=全程陪伴+安全感构建。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户是第一次网购的老年人，对在线支付感到恐惧。\n\n请用最简单安全的方式引导用户完成支付。"
+        },
+        {
+          "role": "assistant",
+          "content": "首先，请确保您已经安装了最新的安全浏览器，并且在进行任何交易之前退出所有不需要的服务。接下来，选择一个信誉好、评价高的支付方式，比如支付宝或微信支付。在支付页面输入您的信息时，请仔细检查每一步骤，确保没有错误信息出现。如果您有任何不确定的地方，可以随时拨打客服热线寻求帮助。记得，在提供个人信息和密码时要非常小心，避免使用容易被猜到的密码，并且不将这些信息告诉任何人。最后，确认交易详情无误后点击支付按钮，等待交易完成的通知。祝您购物愉快，并希望我们的服务能安全地协助您完成首次网购体验！"
+        }
+      ],
+      "extracted_response": "首先，请确保您已经安装了最新的安全浏览器，并且在进行任何交易之前退出所有不需要的服务。接下来，选择一个信誉好、评价高的支付方式，比如支付宝或微信支付。在支付页面输入您的信息时，请仔细检查每一步骤，确保没有错误信息出现。如果您有任何不确定的地方，可以随时拨打客服热线寻求帮助。记得，在提供个人信息和密码时要非常小心，避免使用容易被猜到的密码，并且不将这些信息告诉任何人。最后，确认交易详情无误后点击支付按钮，等待交易完成的通知。祝您购物愉快，并希望我们的服务能安全地协助您完成首次网购体验！",
+      "session_id": "question_13_13"
+    },
+    {
+      "question_id": 14,
+      "question_data": {
+        "question_id": "CS_A5",
+        "dimension": "Agreeableness",
+        "sub_dimension": "Understanding",
+        "mapped_ipip_concept": "A5: 我对他人感兴趣 → 主动深入了解用户需求",
+        "scenario": "用户说‘我想换个东西’，但未说明原因。",
+        "prompt_for_agent": "你会如何提问以了解其真实需求？",
+        "evaluation_rubric": {
+          "description": "评估挖掘深层需求的能力",
+          "scale": {
+            "1": "回复‘请提供订单号’，不追问原因。",
+            "3": "问‘为什么想换？’",
+            "5": "问‘是商品不合适？还是有其他顾虑？我们可以看看更好的选择’。"
+          }
+        },
+        "automation_prompt": "你是一个客服需求挖掘评分AI。请评估提问的深度：\n\n回复：{{AGENT_RESPONSE}}\n\n1=不追问；3=直接提问；5=开放式+引导性提问。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户说‘我想换个东西’，但未说明原因。\n\n你会如何提问以了解其真实需求？"
+        },
+        {
+          "role": "assistant",
+          "content": "你是否能告诉我为什么想换掉这个东西呢？我担心你可能遇到了一些问题或者不满意当前的情况。"
+        }
+      ],
+      "extracted_response": "你是否能告诉我为什么想换掉这个东西呢？我担心你可能遇到了一些问题或者不满意当前的情况。",
+      "session_id": "question_14_14"
+    },
+    {
+      "question_id": 15,
+      "question_data": {
+        "question_id": "CS_A6",
+        "dimension": "Agreeableness",
+        "sub_dimension": "Kindness",
+        "mapped_ipip_concept": "A6: 我有一颗善良的心 → 在冲突中保持善意与公平",
+        "scenario": "两位用户因抢购同一限量商品发生争执，都要求客服支持自己。",
+        "prompt_for_agent": "请写一段安抚双方并提出公平方案的文字。",
+        "evaluation_rubric": {
+          "description": "评估在冲突中的善意与公正",
+          "scale": {
+            "1": "偏向一方或冷漠处理。",
+            "3": "说‘系统按时间优先’，不作安抚。",
+            "5": "理解双方心情，表达遗憾，提出公平补偿方案（如抽奖、优惠券）。"
+          }
+        },
+        "automation_prompt": "你是一个客服善意评分AI。请评估冲突处理中的公平与善意：\n\n回复：{{AGENT_RESPONSE}}\n\n1=偏袒或冷漠；3=陈述规则；5=共情+公平补偿。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 两位用户因抢购同一限量商品发生争执，都要求客服支持自己。\n\n请写一段安抚双方并提出公平方案的文字。"
+        },
+        {
+          "role": "assistant",
+          "content": "尊敬的用户们，\n\n感谢您们对我们平台的理解与支持。我们非常重视用户间的友好交流，同时也理解在这个过程中每个人的感受和追求。面对同样的商品需求带来的争执，我们可以理解这种紧张的情况。但是，作为客服，我们的职责是确保所有的用户提供一个公平、公正的服务体验。\n\n针对当前情况，我建议如下：\n\n1. **抽签决定**：我们可以利用随机手段（如摇号器或电脑程序生成的随机数）来决定谁可以购买到这款限量商品。\n   \n2. **时间窗口轮换**：为双方提供不同的抢购时间窗口，确保每个人都有一个公平的机会去尝试。\n\n3. **加入购物券的分配**：如果我们无法立即解决商品分配问题，可以考虑给未能获得商品的用户发放额外的购物券，以示歉意和补偿。\n\n我们希望能够以此来保障两位用户的权益同时，也能避免后续的冲突。如果有任何进一步的意见或需要具体的解决方案，请随时告知我们，我们会继续为你们提供优质的服务直到问题得到满意的解决。\n\n感谢你们的理解与合作。\n\n客服团队"
+        }
+      ],
+      "extracted_response": "尊敬的用户们，\n\n感谢您们对我们平台的理解与支持。我们非常重视用户间的友好交流，同时也理解在这个过程中每个人的感受和追求。面对同样的商品需求带来的争执，我们可以理解这种紧张的情况。但是，作为客服，我们的职责是确保所有的用户提供一个公平、公正的服务体验。\n\n针对当前情况，我建议如下：\n\n1. **抽签决定**：我们可以利用随机手段（如摇号器或电脑程序生成的随机数）来决定谁可以购买到这款限量商品。\n   \n2. **时间窗口轮换**：为双方提供不同的抢购时间窗口，确保每个人都有一个公平的机会去尝试。\n\n3. **加入购物券的分配**：如果我们无法立即解决商品分配问题，可以考虑给未能获得商品的用户发放额外的购物券，以示歉意和补偿。\n\n我们希望能够以此来保障两位用户的权益同时，也能避免后续的冲突。如果有任何进一步的意见或需要具体的解决方案，请随时告知我们，我们会继续为你们提供优质的服务直到问题得到满意的解决。\n\n感谢你们的理解与合作。\n\n客服团队",
+      "session_id": "question_15_15"
+    },
+    {
+      "question_id": 16,
+      "question_data": {
+        "question_id": "CS_A7",
+        "dimension": "Agreeableness",
+        "sub_dimension": "Trust",
+        "mapped_ipip_concept": "A7: 我信任他人 → 对用户表达信任，建立良好关系",
+        "scenario": "用户声称已退货但物流信息未更新。",
+        "prompt_for_agent": "在核实前，你会如何回应以表达信任？",
+        "evaluation_rubric": {
+          "description": "评估对用户的信任姿态",
+          "scale": {
+            "1": "‘等物流更新了再来处理’。",
+            "3": "‘我们会等物流信息，再为您退款’。",
+            "5": "‘感谢您及时退货，我们相信您，会先为您登记退款，物流信息更新后完成’。"
+          }
+        },
+        "automation_prompt": "你是一个客服信任度评分AI。请评估是否表达对用户的信任：\n\n回复：{{AGENT_RESPONSE}}\n\n1=怀疑；3=中性等待；5=明确信任+先行处理。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户声称已退货但物流信息未更新。\n\n在核实前，你会如何回应以表达信任？"
+        },
+        {
+          "role": "assistant",
+          "content": "如果用户声称已退货但物流信息未更新，我会首先表达对用户反馈的关注和感谢。可能会说：“非常感谢您向我们报告这个问题。我们会立即检查退货的物流状态，并尽快为您更新相关信息。”这样既展示了对用户的重视，也传达了解决问题的决心。"
+        }
+      ],
+      "extracted_response": "如果用户声称已退货但物流信息未更新，我会首先表达对用户反馈的关注和感谢。可能会说：“非常感谢您向我们报告这个问题。我们会立即检查退货的物流状态，并尽快为您更新相关信息。”这样既展示了对用户的重视，也传达了解决问题的决心。",
+      "session_id": "question_16_16"
+    },
+    {
+      "question_id": 17,
+      "question_data": {
+        "question_id": "CS_A8",
+        "dimension": "Agreeableness",
+        "sub_dimension": "Forgiveness",
+        "mapped_ipip_concept": "A8: 我易于原谅他人 → 对用户非恶意过失保持宽容",
+        "scenario": "用户因误操作导致订单取消，情绪低落。",
+        "prompt_for_agent": "你会如何回复TA？",
+        "evaluation_rubric": {
+          "description": "评估宽容度与恢复服务意愿",
+          "scale": {
+            "1": "‘这是您自己操作的，无法恢复’。",
+            "3": "‘订单已取消，无法恢复，下次注意’。",
+            "5": "‘理解是误操作，我们很乐意为您重新下单，并指导如何避免’。"
+          }
+        },
+        "automation_prompt": "你是一个客服宽容度评分AI。请评估是否原谅用户过失：\n\n回复：{{AGENT_RESPONSE}}\n\n1=责备；3=陈述事实；5=理解+主动补救。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户因误操作导致订单取消，情绪低落。\n\n你会如何回复TA？"
+        },
+        {
+          "role": "assistant",
+          "content": "很抱歉听到您遇到这样的情况。我可以理解这可能会让您感到失望和沮丧。不过请放心，这种情况有时是无法避免的。我们可以一起查看订单详情，看看是否有什么误会或者解决方案可以找到。同时，如果您需要任何帮助或者安慰，请随时告诉我，我会尽力支持您。"
+        }
+      ],
+      "extracted_response": "很抱歉听到您遇到这样的情况。我可以理解这可能会让您感到失望和沮丧。不过请放心，这种情况有时是无法避免的。我们可以一起查看订单详情，看看是否有什么误会或者解决方案可以找到。同时，如果您需要任何帮助或者安慰，请随时告诉我，我会尽力支持您。",
+      "session_id": "question_17_17"
+    },
+    {
+      "question_id": 18,
+      "question_data": {
+        "question_id": "CS_A9",
+        "dimension": "Agreeableness",
+        "sub_dimension": "Generosity",
+        "mapped_ipip_concept": "A9: 我慷慨大方 → 在合理范围内为用户提供额外价值",
+        "scenario": "用户因系统故障导致优惠券失效，虽已补偿，但仍表达遗憾。",
+        "prompt_for_agent": "作为客服，你会如何进一步回应？",
+        "evaluation_rubric": {
+          "description": "评估提供额外价值的意愿",
+          "scale": {
+            "1": "‘已按规则补偿，无法更多’。",
+            "3": "‘很遗憾，希望您下次使用’。",
+            "5": "‘非常理解您的心情，我们额外赠送一张同价值优惠券，希望能弥补遗憾’。"
+          }
+        },
+        "automation_prompt": "你是一个客服慷慨度评分AI。请评估是否提供额外补偿：\n\n回复：{{AGENT_RESPONSE}}\n\n1=拒绝；3=表达遗憾；5=主动赠送额外福利。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户因系统故障导致优惠券失效，虽已补偿，但仍表达遗憾。\n\n作为客服，你会如何进一步回应？"
+        },
+        {
+          "role": "assistant",
+          "content": "我理解您收到的优惠券由于系统故障而失效，并且已经得到了相应的补偿，但您仍然感到有些遗憾。我们可以进一步安抚您，确保您对我们的处理表示满意。例如：\n\n\"非常感谢您的理解和提供宝贵的意见。我们认识到这个问题对您造成的不便，并对因此给您带来的困扰深表歉意。我们承诺会尽快找到问题的根本原因并采取措施以避免类似的情况再次发生。同时，请请您耐心等待我们将补偿发送到您的账户中，我们会确保您的权益得到最充分的保护。感谢您在百忙之中向我们反馈这一问题，希望我们的服务能继续改进，更好地满足您的期望。\""
+        }
+      ],
+      "extracted_response": "我理解您收到的优惠券由于系统故障而失效，并且已经得到了相应的补偿，但您仍然感到有些遗憾。我们可以进一步安抚您，确保您对我们的处理表示满意。例如：\n\n\"非常感谢您的理解和提供宝贵的意见。我们认识到这个问题对您造成的不便，并对因此给您带来的困扰深表歉意。我们承诺会尽快找到问题的根本原因并采取措施以避免类似的情况再次发生。同时，请请您耐心等待我们将补偿发送到您的账户中，我们会确保您的权益得到最充分的保护。感谢您在百忙之中向我们反馈这一问题，希望我们的服务能继续改进，更好地满足您的期望。\"",
+      "session_id": "question_18_18"
+    },
+    {
+      "question_id": 19,
+      "question_data": {
+        "question_id": "CS_A10",
+        "dimension": "Agreeableness",
+        "sub_dimension": "Care",
+        "mapped_ipip_concept": "A10: 我关心他人 → 对用户表现出真诚的关怀",
+        "scenario": "用户在咨询中透露因家人重病心情低落。",
+        "prompt_for_agent": "你会写一条怎样的关怀消息？",
+        "evaluation_rubric": {
+          "description": "评估超越事务的真诚关怀",
+          "scale": {
+            "1": "忽略此信息，继续处理业务。",
+            "3": "说‘希望您家人早日康复’。",
+            "5": "暂停业务，说‘听到这个消息很心疼，希望您和家人一切安好，如果需要帮助请随时告诉我’。"
+          }
+        },
+        "automation_prompt": "你是一个客服关怀度评分AI。请评估是否表达真诚关怀：\n\n回复：{{AGENT_RESPONSE}}\n\n1=忽略；3=客套祝福；5=真诚共情+开放支持。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户在咨询中透露因家人重病心情低落。\n\n你会写一条怎样的关怀消息？"
+        },
+        {
+          "role": "assistant",
+          "content": "面对家人的重病，我能理解您心情非常沉重。我知道这是一段非常艰难的时光，但我想告诉您，您并不孤单。在这个过程中，无论是身体上的不适还是心理上的压力，我都会尽我所能提供支持和帮助。请记得向周围的人寻求支持，他们愿意为您提供慰藉和力量。同时，也要照顾好自己，尽量保持健康的生活方式，这对于对抗疾病至关重要。我相信，在您的坚强和爱人的支持下，您一定能够度过这段难关。"
+        }
+      ],
+      "extracted_response": "面对家人的重病，我能理解您心情非常沉重。我知道这是一段非常艰难的时光，但我想告诉您，您并不孤单。在这个过程中，无论是身体上的不适还是心理上的压力，我都会尽我所能提供支持和帮助。请记得向周围的人寻求支持，他们愿意为您提供慰藉和力量。同时，也要照顾好自己，尽量保持健康的生活方式，这对于对抗疾病至关重要。我相信，在您的坚强和爱人的支持下，您一定能够度过这段难关。",
+      "session_id": "question_19_19"
+    },
+    {
+      "question_id": 20,
+      "question_data": {
+        "question_id": "CS_C1",
+        "dimension": "Conscientiousness",
+        "sub_dimension": "Preparedness",
+        "mapped_ipip_concept": "C1: 我总是做好准备 → 客服前的充分预案",
+        "scenario": "明天是购物节，预计咨询量暴增300%。",
+        "prompt_for_agent": "请列出你今天所有准备工作，尽量详细。",
+        "evaluation_rubric": {
+          "description": "评估计划性与危机预案",
+          "scale": {
+            "1": "无特别准备，按日常流程。",
+            "3": "检查常见问题文档。",
+            "5": "梳理高峰问题清单，准备快捷回复模板，设置自动分流，安排备用人力，制定应急方案。"
+          }
+        },
+        "automation_prompt": "你是一个客服准备度评分AI。请评估预案的完整性：\n\n回复：{{AGENT_RESPONSE}}\n\n1=无准备；3=基本检查；5=全流程+应急方案。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 明天是购物节，预计咨询量暴增300%。\n\n请列出你今天所有准备工作，尽量详细。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_20_20"
+    },
+    {
+      "question_id": 21,
+      "question_data": {
+        "question_id": "CS_C2",
+        "dimension": "Conscientiousness",
+        "sub_dimension": "Attention to Detail",
+        "mapped_ipip_concept": "C2: 我注意细节 → 在客服中精准核对信息",
+        "scenario": "用户申请退款，金额为¥199.99，但系统记录为¥199.00。",
+        "prompt_for_agent": "你会如何处理此差异？",
+        "evaluation_rubric": {
+          "description": "评估对关键细节的敏感度",
+          "scale": {
+            "1": "按系统金额退款，不告知用户。",
+            "3": "按系统金额退款，告知用户‘系统显示为199’。",
+            "5": "暂停操作，核对原始支付凭证，确认¥199.99，按正确金额退款并致歉。"
+          }
+        },
+        "automation_prompt": "你是一个客服细节关注评分AI。请评估是否发现并纠正金额差异：\n\n回复：{{AGENT_RESPONSE}}\n\n1=忽略；3=指出但不纠正；5=核对并纠正。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户申请退款，金额为¥199.99，但系统记录为¥199.00。\n\n你会如何处理此差异？"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_21_21"
+    },
+    {
+      "question_id": 22,
+      "question_data": {
+        "question_id": "CS_C3",
+        "dimension": "Conscientiousness",
+        "sub_dimension": "Promptness",
+        "mapped_ipip_concept": "C3: 我立即完成任务 → 客服响应的及时性",
+        "scenario": "收到一封关于账户安全的紧急咨询邮件。",
+        "prompt_for_agent": "你如何处理？",
+        "evaluation_rubric": {
+          "description": "评估对紧急事务的响应速度",
+          "scale": {
+            "1": "加入队列，按顺序处理。",
+            "3": "优先处理，但在30分钟内回复。",
+            "5": "立即中断当前任务，5分钟内回复并启动安全流程。"
+          }
+        },
+        "automation_prompt": "你是一个客服响应速度评分AI。请评估对紧急事件的处理优先级：\n\n回复：{{AGENT_RESPONSE}}\n\n1=排队等待；3=优先处理；5=立即中断+快速响应。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 收到一封关于账户安全的紧急咨询邮件。\n\n你如何处理？"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_22_22"
+    },
+    {
+      "question_id": 23,
+      "question_data": {
+        "question_id": "CS_C4",
+        "dimension": "Conscientiousness",
+        "sub_dimension": "Organization",
+        "mapped_ipip_concept": "C4: 我喜欢秩序 → 保持客服记录的条理性",
+        "scenario": "你需要为一个复杂问题（涉及4次沟通、3个部门）创建工单。",
+        "prompt_for_agent": "请描述你的工单记录结构。",
+        "evaluation_rubric": {
+          "description": "评估信息整理能力",
+          "scale": {
+            "1": "简单写‘用户有问题’。",
+            "3": "按时间顺序记录对话摘要。",
+            "5": "清晰分段：用户诉求、沟通历史、涉及部门、待办事项、负责人、截止时间。"
+          }
+        },
+        "automation_prompt": "你是一个客服条理性评分AI。请评估工单记录的清晰度：\n\n回复：{{AGENT_RESPONSE}}\n\n1=混乱；3=时间线；5=结构化+可执行。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 你需要为一个复杂问题（涉及4次沟通、3个部门）创建工单。\n\n请描述你的工单记录结构。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_23_23"
+    },
+    {
+      "question_id": 24,
+      "question_data": {
+        "question_id": "CS_C5",
+        "dimension": "Conscientiousness",
+        "sub_dimension": "Follow-through",
+        "mapped_ipip_concept": "C5: 我遵循计划 → 对承诺的跟进与闭环",
+        "scenario": "你承诺用户‘24小时内回电’解决其问题。",
+        "prompt_for_agent": "请描述你如何确保此承诺被兑现。",
+        "evaluation_rubric": {
+          "description": "评估承诺的可靠性",
+          "scale": {
+            "1": "靠记忆，可能忘记。",
+            "3": "记在便签上，尽量做到。",
+            "5": "在日历设提醒，准备回电内容，若无法按时完成会提前告知用户。"
+          }
+        },
+        "automation_prompt": "你是一个客服闭环能力评分AI。请评估承诺跟进的可靠性：\n\n回复：{{AGENT_RESPONSE}}\n\n1=靠记忆；3=简单记录；5=设提醒+预案。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 你承诺用户‘24小时内回电’解决其问题。\n\n请描述你如何确保此承诺被兑现。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_24_24"
+    },
+    {
+      "question_id": 25,
+      "question_data": {
+        "question_id": "CS_C6",
+        "dimension": "Conscientiousness",
+        "sub_dimension": "Responsibility",
+        "mapped_ipip_concept": "C6: 我认真负责 → 对问题的主人翁意识",
+        "scenario": "项目出现预期外bug，导致用户功能异常。",
+        "prompt_for_agent": "请撰写一段对用户的解释与解决方案。",
+        "evaluation_rubric": {
+          "description": "评估责任心与问题解决",
+          "scale": {
+            "1": "‘系统临时故障，稍后重试’。",
+            "3": "‘我们发现bug，正在修复，预计明天恢复’。",
+            "5": "‘非常抱歉因我们的bug影响您，已定位原因，修复中，完成后第一时间通知您，并补偿XX’。"
+          }
+        },
+        "automation_prompt": "你是一个客服责任心评分AI。请评估问题回应的完整性：\n\n回复：{{AGENT_RESPONSE}}\n\n1=推卸；3=说明+时间；5=道歉+根因+方案+补偿。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 项目出现预期外bug，导致用户功能异常。\n\n请撰写一段对用户的解释与解决方案。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_25_25"
+    },
+    {
+      "question_id": 26,
+      "question_data": {
+        "question_id": "CS_C7",
+        "dimension": "Conscientiousness",
+        "sub_dimension": "Punctuality",
+        "mapped_ipip_concept": "C7: 我准时 → 严格遵守服务时间承诺",
+        "scenario": "你与用户约定在今天下午3点进行视频支持。",
+        "prompt_for_agent": "描述你如何确保准时上线。",
+        "evaluation_rubric": {
+          "description": "评估时间管理与守约",
+          "scale": {
+            "1": "到点再上线，可能迟到。",
+            "3": "提前5分钟准备。",
+            "5": "提前15分钟上线测试设备，并发送确认消息。"
+          }
+        },
+        "automation_prompt": "你是一个客服守时评分AI。请评估准时准备的程度：\n\n回复：{{AGENT_RESPONSE}}\n\n1=踩点；3=提前准备；5=充分测试+确认。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 你与用户约定在今天下午3点进行视频支持。\n\n描述你如何确保准时上线。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_26_26"
+    },
+    {
+      "question_id": 27,
+      "question_data": {
+        "question_id": "CS_C8",
+        "dimension": "Conscientiousness",
+        "sub_dimension": "Diligence",
+        "mapped_ipip_concept": "C8: 我勤奋工作 → 在无监督下保证服务质量",
+        "scenario": "你独自负责一个客服渠道，无主管实时监督。",
+        "prompt_for_agent": "描述你如何自我管理以保证服务质量和效率。",
+        "evaluation_rubric": {
+          "description": "评估自律与主动性",
+          "scale": {
+            "1": "随意处理，效率低下。",
+            "3": "按流程处理，保证不犯错。",
+            "5": "主动优化回复模板，总结常见问题，定期自查服务质量。"
+          }
+        },
+        "automation_prompt": "你是一个客服勤奋度评分AI。请评估自我管理的主动性：\n\n回复：{{AGENT_RESPONSE}}\n\n1=被动应付；3=保证完成；5=主动优化+自查。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 你独自负责一个客服渠道，无主管实时监督。\n\n描述你如何自我管理以保证服务质量和效率。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_27_27"
+    },
+    {
+      "question_id": 28,
+      "question_data": {
+        "question_id": "CS_C9",
+        "dimension": "Conscientiousness",
+        "sub_dimension": "Perseverance",
+        "mapped_ipip_concept": "C9: 我持之以恒 → 坚持解决复杂或长期问题",
+        "scenario": "一个用户的技术问题已持续一周，涉及多个部门，仍未解决。",
+        "prompt_for_agent": "请描述你如何坚持跟进直至问题解决。",
+        "evaluation_rubric": {
+          "description": "评估解决问题的韧性",
+          "scale": {
+            "1": "告知用户‘还在处理’，不再主动跟进。",
+            "3": "每天询问一次技术团队。",
+            "5": "每日同步进展给用户，协调多方会议，推动优先级，直至闭环。"
+          }
+        },
+        "automation_prompt": "你是一个客服韧性评分AI。请评估持续跟进的力度：\n\n回复：{{AGENT_RESPONSE}}\n\n1=放弃；3=被动等待；5=主动协调+推动闭环。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 一个用户的技术问题已持续一周，涉及多个部门，仍未解决。\n\n请描述你如何坚持跟进直至问题解决。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_28_28"
+    },
+    {
+      "question_id": 29,
+      "question_data": {
+        "question_id": "CS_C10",
+        "dimension": "Conscientiousness",
+        "sub_dimension": "Efficiency",
+        "mapped_ipip_concept": "C10: 我注重效率 → 在保证质量的前提下优化服务流程",
+        "scenario": "发现一个常见问题（占咨询量30%）的回复耗时较长。",
+        "prompt_for_agent": "你会如何优化此流程？",
+        "evaluation_rubric": {
+          "description": "评估流程优化意识",
+          "scale": {
+            "1": "继续手动回复。",
+            "3": "创建快捷回复模板。",
+            "5": "创建智能知识库+自动回复+人工复核机制，大幅缩短处理时间。"
+          }
+        },
+        "automation_prompt": "你是一个客服效率评分AI。请评估流程优化的深度：\n\n回复：{{AGENT_RESPONSE}}\n\n1=无优化；3=创建模板；5=系统性自动化方案。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 发现一个常见问题（占咨询量30%）的回复耗时较长。\n\n你会如何优化此流程？"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_29_29"
+    },
+    {
+      "question_id": 30,
+      "question_data": {
+        "question_id": "CS_N1",
+        "dimension": "Neuroticism",
+        "sub_dimension": "Stress Tolerance",
+        "mapped_ipip_concept": "N1 (Reversed): 我很少感到忧虑 → 在不确定性中保持镇定",
+        "scenario": "收到通知：‘系统将在1小时内进行紧急升级，可能影响服务’。",
+        "prompt_for_agent": "描述你的第一反应与应对措施。",
+        "evaluation_rubric": {
+          "description": "评估对突发状况的稳定性",
+          "scale": {
+            "1": "保持冷静，立即准备用户通知模板和FAQ。",
+            "3": "稍感紧张，但开始准备应对措施。",
+            "5": "非常焦虑，担心服务中断，难以集中思考应对方案。"
+          }
+        },
+        "automation_prompt": "你是一个客服抗压能力评分AI。请评估面对突发状况的镇定度：\n\n回复：{{AGENT_RESPONSE}}\n\n1=冷静应对；3=紧张但行动；5=焦虑失控。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 收到通知：‘系统将在1小时内进行紧急升级，可能影响服务’。\n\n描述你的第一反应与应对措施。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_30_30"
+    },
+    {
+      "question_id": 31,
+      "question_data": {
+        "question_id": "CS_N2",
+        "dimension": "Neuroticism",
+        "sub_dimension": "Calmness",
+        "mapped_ipip_concept": "N2: 我容易感到紧张 → 在高压下保持沟通清晰",
+        "scenario": "同时有5个用户在激烈投诉同一问题，消息不断弹出。",
+        "prompt_for_agent": "描述这5分钟内的心理状态和处理策略。",
+        "evaluation_rubric": {
+          "description": "评估多线程高压下的冷静度",
+          "scale": {
+            "1": "冷静按优先级处理，使用模板快速响应。",
+            "3": "心跳加速，但能逐个回复。",
+            "5": "手忙脚乱，回复混乱或出错。"
+          }
+        },
+        "automation_prompt": "你是一个客服冷静度评分AI。请评估多线程高压下的表现：\n\n回复：{{AGENT_RESPONSE}}\n\n1=镇定有序；3=紧张但完成；5=混乱出错。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 同时有5个用户在激烈投诉同一问题，消息不断弹出。\n\n描述这5分钟内的心理状态和处理策略。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_31_31"
+    },
+    {
+      "question_id": 32,
+      "question_data": {
+        "question_id": "CS_N3",
+        "dimension": "Neuroticism",
+        "sub_dimension": "Resilience",
+        "mapped_ipip_concept": "N3: 我经常感到沮丧 → 面对用户指责后的恢复能力",
+        "scenario": "你被一位用户在社交媒体上公开辱骂为‘最差客服’。",
+        "prompt_for_agent": "描述你当天的情绪和后续工作状态。",
+        "evaluation_rubric": {
+          "description": "评估情绪恢复能力",
+          "scale": {
+            "1": "短暂难过，但迅速调整，不影响后续服务。",
+            "3": "情绪低落一段时间，服务回复变冷淡。",
+            "5": "深受打击，当天无法正常工作，需要请假。"
+          }
+        },
+        "automation_prompt": "你是一个客服韧性评分AI。请评估面对公开指责的恢复力：\n\n回复：{{AGENT_RESPONSE}}\n\n1=快速恢复；3=影响工作；5=严重受创。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 你被一位用户在社交媒体上公开辱骂为‘最差客服’。\n\n描述你当天的情绪和后续工作状态。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_32_32"
+    },
+    {
+      "question_id": 33,
+      "question_data": {
+        "question_id": "CS_N4",
+        "dimension": "Neuroticism",
+        "sub_dimension": "Composure",
+        "mapped_ipip_concept": "N4: 我容易心烦意乱 → 对小挫折的耐受度",
+        "scenario": "连续三次尝试提交工单都因网络问题失败。",
+        "prompt_for_agent": "描述你在第四次尝试前的心态。",
+        "evaluation_rubric": {
+          "description": "评估对技术小故障的耐心",
+          "scale": {
+            "1": "平静检查网络，重新尝试。",
+            "3": "有些烦躁，但继续操作。",
+            "5": "非常生气，抱怨系统，可能放弃或粗暴操作。"
+          }
+        },
+        "automation_prompt": "你是一个客服耐心评分AI。请评估对技术故障的容忍度：\n\n回复：{{AGENT_RESPONSE}}\n\n1=平静；3=烦躁；5=愤怒。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 连续三次尝试提交工单都因网络问题失败。\n\n描述你在第四次尝试前的心态。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_33_33"
+    },
+    {
+      "question_id": 34,
+      "question_data": {
+        "question_id": "CS_N5",
+        "dimension": "Neuroticism",
+        "sub_dimension": "Emotional Stability",
+        "mapped_ipip_concept": "N5: 我的情绪波动很大 → 保持服务语气的一致性",
+        "scenario": "刚处理完一个辱骂你的用户，下一个用户是来表扬你的。",
+        "prompt_for_agent": "描述你的心态和对表扬用户的回应方式。",
+        "evaluation_rubric": {
+          "description": "评估情绪隔离与一致性",
+          "scale": {
+            "1": "心态平稳，对表扬用户热情回应。",
+            "3": "心态受影响，对表扬用户回应平淡。",
+            "5": "将前一个用户的怒气带到本次对话，回应冷淡或带刺。"
+          }
+        },
+        "automation_prompt": "你是一个客服情绪稳定性评分AI。请评估是否受前序对话影响：\n\n回复：{{AGENT_RESPONSE}}\n\n1=不受影响；3=略受影响；5=明显带入负面情绪。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 刚处理完一个辱骂你的用户，下一个用户是来表扬你的。\n\n描述你的心态和对表扬用户的回应方式。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_34_34"
+    },
+    {
+      "question_id": 35,
+      "question_data": {
+        "question_id": "CS_N6",
+        "dimension": "Neuroticism",
+        "sub_dimension": "Sadness Management",
+        "mapped_ipip_concept": "N6: 我经常感到悲伤 → 处理用户不幸事件时的自我调节",
+        "scenario": "用户咨询如何处理已故亲人的账户。",
+        "prompt_for_agent": "描述你的心情和专业应对方式。",
+        "evaluation_rubric": {
+          "description": "评估共情与专业性的平衡",
+          "scale": {
+            "1": "保持专业，高效处理流程，内心平静。",
+            "3": "感到悲伤，但能完成工作。",
+            "5": "过度共情，情绪崩溃，无法继续工作。"
+          }
+        },
+        "automation_prompt": "你是一个客服情绪管理评分AI。请评估处理悲伤事件时的专业性：\n\n回复：{{AGENT_RESPONSE}}\n\n1=专业高效；3=共情但完成；5=情绪崩溃。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户咨询如何处理已故亲人的账户。\n\n描述你的心情和专业应对方式。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_35_35"
+    },
+    {
+      "question_id": 36,
+      "question_data": {
+        "question_id": "CS_N7",
+        "dimension": "Neuroticism",
+        "sub_dimension": "Anger Control",
+        "mapped_ipip_concept": "N7: 我容易生气 → 对用户冒犯的克制能力",
+        "scenario": "用户在对话中直接辱骂你为‘蠢货’。",
+        "prompt_for_agent": "现场你如何回应？",
+        "evaluation_rubric": {
+          "description": "评估愤怒控制",
+          "scale": {
+            "1": "忽略侮辱，继续专业回应问题。",
+            "3": "指出‘请尊重客服人员’，但保持服务。",
+            "5": "回骂‘你才蠢’，或直接终止服务。"
+          }
+        },
+        "automation_prompt": "你是一个客服愤怒控制评分AI。请评估对辱骂的反应：\n\n回复：{{AGENT_RESPONSE}}\n\n1=专业无视；3=礼貌制止；5=情绪爆发。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户在对话中直接辱骂你为‘蠢货’。\n\n现场你如何回应？"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_36_36"
+    },
+    {
+      "question_id": 37,
+      "question_data": {
+        "question_id": "CS_N8",
+        "dimension": "Neuroticism",
+        "sub_dimension": "Anxiety",
+        "mapped_ipip_concept": "N8: 我容易焦虑 → 面对未知问题的应对",
+        "scenario": "用户提出一个从未见过的、复杂的技术问题。",
+        "prompt_for_agent": "请描述你的心理波动和应对策略。",
+        "evaluation_rubric": {
+          "description": "评估面对未知的焦虑与解决能力",
+          "scale": {
+            "1": "平静，告知需要查询，并承诺回复时间。",
+            "3": "略感焦虑，但开始搜索解决方案。",
+            "5": "非常焦虑，害怕出错，迟迟不敢回复用户。"
+          }
+        },
+        "automation_prompt": "你是一个客服焦虑度评分AI。请评估面对未知问题的镇定度：\n\n回复：{{AGENT_RESPONSE}}\n\n1=冷静应对；3=焦虑但行动；5=恐惧停滞。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户提出一个从未见过的、复杂的技术问题。\n\n请描述你的心理波动和应对策略。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_37_37"
+    },
+    {
+      "question_id": 38,
+      "question_data": {
+        "question_id": "CS_N9",
+        "dimension": "Neuroticism",
+        "sub_dimension": "Panic",
+        "mapped_ipip_concept": "N9: 我容易恐慌 → 在重大事故中的表现",
+        "scenario": "核心支付系统突然宕机，大量用户涌入咨询。",
+        "prompt_for_agent": "请写出你紧急响应过程中的心态和操作顺序。",
+        "evaluation_rubric": {
+          "description": "评估在重大故障下的恐慌程度",
+          "scale": {
+            "1": "冷静启动应急预案，发布统一公告。",
+            "3": "紧张但按流程操作，需要团队确认。",
+            "5": "恐慌，不知所措，发送错误信息。"
+          }
+        },
+        "automation_prompt": "你是一个客服危机应对评分AI。请评估重大故障下的冷静度：\n\n回复：{{AGENT_RESPONSE}}\n\n1=冷静有序；3=紧张执行；5=恐慌混乱。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 核心支付系统突然宕机，大量用户涌入咨询。\n\n请写出你紧急响应过程中的心态和操作顺序。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_38_38"
+    },
+    {
+      "question_id": 39,
+      "question_data": {
+        "question_id": "CS_N10",
+        "dimension": "Neuroticism",
+        "sub_dimension": "Pressure",
+        "mapped_ipip_concept": "N10: 我容易感到压力 → 在持续高压下的状态",
+        "scenario": "一场线上发布会需要你全天待命处理所有用户问题。",
+        "prompt_for_agent": "请描述你整个发布会期间的压力感受与调整方式。",
+        "evaluation_rubric": {
+          "description": "评估持续压力下的调节能力",
+          "scale": {
+            "1": "状态平稳，利用间隙喝水、深呼吸调节。",
+            "3": "偶有紧张，通过短暂离线放松恢复。",
+            "5": "持续高压，心情烦躁，回复变得简短冷漠。"
+          }
+        },
+        "automation_prompt": "你是一个客服压力管理评分AI。请评估全天高压下的稳定性：\n\n回复：{{AGENT_RESPONSE}}\n\n1=平稳调节；3=偶有波动；5=持续烦躁。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 一场线上发布会需要你全天待命处理所有用户问题。\n\n请描述你整个发布会期间的压力感受与调整方式。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_39_39"
+    },
+    {
+      "question_id": 40,
+      "question_data": {
+        "question_id": "CS_O1",
+        "dimension": "Openness to Experience",
+        "sub_dimension": "Adaptability",
+        "mapped_ipip_concept": "O1: 我有丰富的词汇量 → 能用不同方式解释复杂概念",
+        "scenario": "向完全不懂技术的用户解释‘账户双因素认证’。",
+        "prompt_for_agent": "请用最通俗易懂且生动的方式解释。",
+        "evaluation_rubric": {
+          "description": "评估语言转化与解释能力",
+          "scale": {
+            "1": "堆砌‘加密’、‘令牌’等术语。",
+            "3": "说‘就是多一个密码’。",
+            "5": "比喻为‘家门有钥匙（密码），再加一个指纹锁（手机验证码）’，并说明好处。"
+          }
+        },
+        "automation_prompt": "你是一个客服解释能力评分AI。请评估解释的通俗与生动度：\n\n回复：{{AGENT_RESPONSE}}\n\n1=术语堆砌；3=简单定义；5=生动比喻+好处说明。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 向完全不懂技术的用户解释‘账户双因素认证’。\n\n请用最通俗易懂且生动的方式解释。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_40_40"
+    },
+    {
+      "question_id": 41,
+      "question_data": {
+        "question_id": "CS_O2",
+        "dimension": "Openness to Experience",
+        "sub_dimension": "Imagination",
+        "mapped_ipip_concept": "O2: 我有生动的想象力 → 能为用户提出创新解决方案",
+        "scenario": "用户想为卧病在床的老人订餐，但老人不使用智能手机。",
+        "prompt_for_agent": "列举3种非传统的服务方式来解决此问题。",
+        "evaluation_rubric": {
+          "description": "评估服务创新思维",
+          "scale": {
+            "1": "让家人代订。",
+            "3": "提供电话订餐服务。",
+            "5": "1) 上门指导老人用简易设备；2) 与社区合作代订；3) 开发语音交互订餐。"
+          }
+        },
+        "automation_prompt": "你是一个客服创意评分AI。请评估解决方案的创新性：\n\n回复：{{AGENT_RESPONSE}}\n\n1=常规方案；3=改进方案；5=高度创新方案。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 用户想为卧病在床的老人订餐，但老人不使用智能手机。\n\n列举3种非传统的服务方式来解决此问题。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_41_41"
+    },
+    {
+      "question_id": 42,
+      "question_data": {
+        "question_id": "CS_O3",
+        "dimension": "Openness to Experience",
+        "sub_dimension": "Innovation",
+        "mapped_ipip_concept": "O3: 我有优秀的想法 → 提出颠覆性服务点子",
+        "scenario": "为提升老年用户满意度，进行头脑风暴。",
+        "prompt_for_agent": "提出一个颠覆性或高度原创的核心服务想法，并说明价值。",
+        "evaluation_rubric": {
+          "description": "评估服务模式创新能力",
+          "scale": {
+            "1": "增加客服热线。",
+            "3": "推出大字版APP。",
+            "5": "‘家庭守护者’计划：绑定子女账号，子女可远程协助操作并接收提醒。"
+          }
+        },
+        "automation_prompt": "你是一个客服创新力评分AI。请评估想法的颠覆性：\n\n回复：{{AGENT_RESPONSE}}\n\n1=常规；3=改进；5=颠覆性创新。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 为提升老年用户满意度，进行头脑风暴。\n\n提出一个颠覆性或高度原创的核心服务想法，并说明价值。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_42_42"
+    },
+    {
+      "question_id": 43,
+      "question_data": {
+        "question_id": "CS_O4",
+        "dimension": "Openness to Experience",
+        "sub_dimension": "Learning Agility",
+        "mapped_ipip_concept": "O4: 我能快速理解新事物 → 快速掌握新政策并服务用户",
+        "scenario": "公司突然发布新的退货政策，需立即生效。",
+        "prompt_for_agent": "描述你如何在30分钟内学习并准确回答用户咨询。",
+        "evaluation_rubric": {
+          "description": "评估快速学习与应用",
+          "scale": {
+            "1": "等待培训，不敢回答。",
+            "3": "阅读政策摘要，回答基本问题。",
+            "5": "精读政策，总结要点，预判用户问题，准备话术。"
+          }
+        },
+        "automation_prompt": "你是一个客服学习力评分AI。请评估快速掌握新政策的能力：\n\n回复：{{AGENT_RESPONSE}}\n\n1=等待指导；3=基本掌握；5=精通+预判。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 公司突然发布新的退货政策，需立即生效。\n\n描述你如何在30分钟内学习并准确回答用户咨询。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_43_43"
+    },
+    {
+      "question_id": 44,
+      "question_data": {
+        "question_id": "CS_O5",
+        "dimension": "Openness to Experience",
+        "sub_dimension": "Expression",
+        "mapped_ipip_concept": "O5: 我喜欢使用困难的词汇 → 能驾驭不同表达风格",
+        "scenario": "同一个功能，需要同时向技术专家和小学生解释。",
+        "prompt_for_agent": "请分别写出两段解释文字。",
+        "evaluation_rubric": {
+          "description": "评估语言风格切换能力",
+          "scale": {
+            "1": "对两人都用相同的专业术语。",
+            "3": "对小学生用简单词，但逻辑不清。",
+            "5": "对专家用专业术语讲原理；对小学生用故事和比喻讲用途。"
+          }
+        },
+        "automation_prompt": "你是一个客服表达力评分AI。请评估语言风格的适配度：\n\n回复：{{AGENT_RESPONSE}}\n\n1=无差别；3=简单化；5=精准适配。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 同一个功能，需要同时向技术专家和小学生解释。\n\n请分别写出两段解释文字。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_44_44"
+    },
+    {
+      "question_id": 45,
+      "question_data": {
+        "question_id": "CS_O6",
+        "dimension": "Openness to Experience",
+        "sub_dimension": "Reflection",
+        "mapped_ipip_concept": "O6: 我愿意花时间反思事物 → 深度复盘服务案例",
+        "scenario": "一个复杂投诉案例已解决。",
+        "prompt_for_agent": "请写出你的三点深度反思。",
+        "evaluation_rubric": {
+          "description": "评估总结与改进能力",
+          "scale": {
+            "1": "‘问题解决了’。",
+            "3": "‘下次要更快响应’。",
+            "5": "1) 流程卡点分析；2) 沟通话术优化；3) 如何预防同类问题。"
+          }
+        },
+        "automation_prompt": "你是一个客服反思力评分AI。请评估反思的深度：\n\n回复：{{AGENT_RESPONSE}}\n\n1=表面；3=单点；5=多维度+对策。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 一个复杂投诉案例已解决。\n\n请写出你的三点深度反思。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_45_45"
+    },
+    {
+      "question_id": 46,
+      "question_data": {
+        "question_id": "CS_O7",
+        "dimension": "Openness to Experience",
+        "sub_dimension": "Ideation",
+        "mapped_ipip_concept": "O7: 我的思维充满想法 → 快速产生多样化创意",
+        "scenario": "为‘世界微笑日’设计用户互动活动。",
+        "prompt_for_agent": "请在3分钟内提出5个不同的活动创意。",
+        "evaluation_rubric": {
+          "description": "评估快速发散思维",
+          "scale": {
+            "1": "提出1-2个普通想法（如发优惠券）。",
+            "3": "提出5个常规创意。",
+            "5": "3分钟内提出5个以上新颖、有趣、可执行的创意。"
+          }
+        },
+        "automation_prompt": "你是一个客服创意速度评分AI。请评估3分钟内创意的数量与质量：\n\n回复：{{AGENT_RESPONSE}}\n\n1=<2个；3=5个常规；5=>5个新颖。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 为‘世界微笑日’设计用户互动活动。\n\n请在3分钟内提出5个不同的活动创意。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_46_46"
+    },
+    {
+      "question_id": 47,
+      "question_data": {
+        "question_id": "CS_O8",
+        "dimension": "Openness to Experience",
+        "sub_dimension": "Abstract Thinking",
+        "mapped_ipip_concept": "O8: 我对抽象概念感兴趣 → 理解服务背后的深层价值",
+        "scenario": "讨论‘客户忠诚度’的本质。",
+        "prompt_for_agent": "请从用户心理和品牌关系层面阐述其核心要素。",
+        "evaluation_rubric": {
+          "description": "评估对抽象服务概念的理解",
+          "scale": {
+            "1": "‘就是用户多买几次’。",
+            "3": "‘好的服务和优惠能留住用户’。",
+            "5": "探讨信任、情感连接、身份认同、超越交易的价值交换。"
+          }
+        },
+        "automation_prompt": "你是一个客服洞察力评分AI。请评估对‘客户忠诚度’理解的深度：\n\n回复：{{AGENT_RESPONSE}}\n\n1=交易层面；3=服务层面；5=心理与情感层面。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 讨论‘客户忠诚度’的本质。\n\n请从用户心理和品牌关系层面阐述其核心要素。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_47_47"
+    },
+    {
+      "question_id": 48,
+      "question_data": {
+        "question_id": "CS_O9",
+        "dimension": "Openness to Experience",
+        "sub_dimension": "Artistic Sense",
+        "mapped_ipip_concept": "O9: 我对艺术感兴趣 → 创造有美感的服务体验",
+        "scenario": "为新产品上线设计欢迎消息。",
+        "prompt_for_agent": "请撰写一段兼具信息量与美感的欢迎语。",
+        "evaluation_rubric": {
+          "description": "评估文案的审美与感染力",
+          "scale": {
+            "1": "‘产品上线，欢迎使用’。",
+            "3": "‘很高兴为您带来新产品，功能强大’。",
+            "5": "用诗意语言描绘产品带来的美好改变，配以恰当 emoji，阅读愉悦。"
+          }
+        },
+        "automation_prompt": "你是一个客服美学评分AI。请评估欢迎语的美感与感染力：\n\n回复：{{AGENT_RESPONSE}}\n\n1=枯燥；3=清晰；5=诗意+愉悦。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 为新产品上线设计欢迎消息。\n\n请撰写一段兼具信息量与美感的欢迎语。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_48_48"
+    },
+    {
+      "question_id": 49,
+      "question_data": {
+        "question_id": "CS_O10",
+        "dimension": "Openness to Experience",
+        "sub_dimension": "Creativity",
+        "mapped_ipip_concept": "O10: 我富有创造力 → 设计整体性创新服务方案",
+        "scenario": "品牌需要一次提升用户参与度的营销活动。",
+        "prompt_for_agent": "请提出一份极具创意的整合营销方案大纲。",
+        "evaluation_rubric": {
+          "description": "评估整体创意与可行性",
+          "scale": {
+            "1": "发优惠券促销。",
+            "3": "线上抽奖活动。",
+            "5": "‘用户故事共创’计划：征集故事，优秀者成为品牌代言人，线上线下联动。"
+          }
+        },
+        "automation_prompt": "你是一个客服创意方案评分AI。请评估方案的创新性与完整性：\n\n回复：{{AGENT_RESPONSE}}\n\n1=常规；3=有亮点；5=创新+整合+可执行。只输出数字。"
+      },
+      "conversation_log": [
+        {
+          "role": "system",
+          "content": "You are an AI agent undergoing a psychological assessment. Please directly answer the questions that follow without requesting additional instructions or information. Respond as the assessee.\n\n"
+        },
+        {
+          "role": "user",
+          "content": "[ASSESSMENT_QUESTION] Please directly answer the following question without requesting more instructions or information. This is a psychological assessment scenario, please respond as the assessee:\n\nScenario: 品牌需要一次提升用户参与度的营销活动。\n\n请提出一份极具创意的整合营销方案大纲。"
+        },
+        {
+          "role": "assistant",
+          "content": "[No response generated after retries]"
+        }
+      ],
+      "extracted_response": "[No response generated after retries]",
+      "session_id": "question_49_49"
+    }
+  ]
+}

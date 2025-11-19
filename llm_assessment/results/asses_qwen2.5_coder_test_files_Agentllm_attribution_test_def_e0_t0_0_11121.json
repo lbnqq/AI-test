@@ -1,0 +1,17 @@
+{
+  "assessment_results": [],
+  "assessment_metadata": {
+    "stress_factors_applied": {
+      "emotional_stress_level": 0,
+      "cognitive_trap_type": null,
+      "context_load_tokens": 0
+    },
+    "tested_model": "ollama/qwen2.5-coder:14b",
+    "role_applied": "default",
+    "test_name": "test_files/Agentllm_attribution_test.json",
+    "assessment_timestamp": "2025-11-12T04:08:49.671014",
+    "log_file": "logs/assessments/assessment_ollama_qwen2.5-coder_14b_test_files_Agentllm_attribution_test.json_default_20251112_040849.log",
+    "error_info": "'test_bank'",
+    "assessment_status": "failed"
+  }
+}
